@@ -1,0 +1,128 @@
+<div class="row d-flex justify-content-center align-items-center mt-3">
+    
+    <div class="col-6">
+        <form  #f="ngForm" (ngSubmit)="onSubmit(f)" class="bg-light" >
+            <div class="row">
+                <div class="col-4 div-img">
+                    <img class="img-thumbnail mt-2" src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" alt="">
+                    <p class="m-2" >
+                        <span class="bi bi-pen color-blue">Modifier</span>
+                        <input hidden type="file"> 
+                    </p>
+                </div>
+                <div class="col-8">
+                    <h3>Infomations Personnelles</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="nom">Nom <span class=" text-danger">*</span> </label>
+                            <input type="text" class="form-control" id="nom" name="fname"
+                            #fname="ngModel" required ngModel >  
+                            <p *ngIf="fname.invalid && fname.dirty" class="alert alert-danger">
+                                This field is required
+                            </p>  
+                        </div>
+                        
+    
+                        <div class="col-6">
+                            <label for="prenom">Prenom<span class=" text-danger">*</span></label>
+                            <input type="text" class="form-control" id="prenom" name="lname"
+                            #lname="ngModel" required ngModel> 
+                            <p *ngIf="lname.invalid && lname.dirty" class="alert alert-danger">This field is required</p>      
+                        </div>
+    
+                    </div>
+                    <div>
+                        <label for="textarea">Je me présente</label>
+                        <textarea class="form-control text-secondary" id="textarea" name="presentation"
+                        #presentation="ngModel" ngModel
+                        >vous pouvez fournir une description de vous même ici...</textarea>
+                    </div>
+    
+                    <h3>Contact</h3>
+                    <hr>   
+                    <div>
+                        <label for="email">Adresse Electronique</label>
+                        <input  type="text" class="form-control" placeholder="par ex.: dieng.ibrahima@gmail.com" id="email" name="email"
+                        #email="ngModel" ngModel>
+                    </div> 
+                    
+                    <div>
+                        <label for="pays">Numéro Téléphonique</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <select name="pays" id="codePays" name="codePays" class="form-control"
+                                #codePays="ngModel" ngModel>
+                                    <option> Selectionnez </option>
+                                    <option value="+216">Tunisie</option>
+                                    <option value="+224">Guinee</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <input  type="text" class="form-control" placeholder="par ex.: 58 071 373" id="tel" name="tel"
+                                #tel="ngModel" ngModel>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label for="socialMedia">Réseaux Sociaux</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <select name="socialMedia" id="socialMedia" class="form-control"
+                                #socialMedia="ngModel" ngModel>
+                                    <option> Selectionnez </option>
+                                    <option value="in">LinkedIn</option>
+                                    <option value="git">GitHub</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="linkSM"
+                                #linkSM="ngModel" ngModel>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <h3>Adresse</h3>
+                <hr>
+                <div>
+                    <div>
+                        <label for="adresse">Ligne d'adresse</label>
+                        <input type="text" placeholder="Par ex.: appartement, suite, étage..." class="form-control" name="adresse"
+                        #adresse="ngModel" ngModel>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="codePostal">Code Postal</label>
+                            <input type="text" id="codePostal" placeholder="Par ex.: 8666" class="form-control" name="codePostal"
+                            #codePostal="ngModel" ngModel>
+                        </div>
+                        <div class="col-4">
+                            <label for="ville">Localité</label>
+                            <input type="text" id="codePostal" placeholder="Par ex.: Tunis" class="form-control" name="ville"
+                            #ville="ngModel" ngModel>
+                        </div>
+                        <div class="col-4">
+                            <label for="pays">Pays</label>
+                            <select  id="pays" class="form-control" name="pays"
+                            #pays="ngModel" ngModel>
+                                <option> Selectionnez </option>
+                                <option value="Tunisie">Tunisie</option>
+                                <option value="Guinee">Guinée</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+                <button hidden type="submit" class="btn btn-primary">next</button>
+                
+            </div>
+            <pre>
+                {{f.value | json}}
+            </pre>
+        </form>   
+
+        
+    </div>
+</div>

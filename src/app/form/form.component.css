@@ -1,0 +1,14 @@
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.color-blue {
+    color: blue;
+    margin-left: 50px;
+}
+
+.div-img {
+    padding-left: 50px;
+}

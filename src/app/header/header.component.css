@@ -1,0 +1,19 @@
+form {
+    width: 50%;
+    margin-left: 100px;
+}
+
+form > button {
+    margin-left: 20px;
+}
+
+.navbar-brand{
+    margin-left: 16px;
+}
+
+.bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
