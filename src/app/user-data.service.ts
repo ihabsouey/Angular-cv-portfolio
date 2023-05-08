@@ -12,7 +12,9 @@ export class UserDataService {
   addToInfoPerso(data : any){
     this.infosPerso?.push(data)
   }
-
   
+  getInfosPerso(){
+    return this.infosPerso
+  }
 
 }

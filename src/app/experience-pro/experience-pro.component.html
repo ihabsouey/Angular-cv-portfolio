@@ -1,0 +1,119 @@
+ <div class="row d-flex justify-content-center align-items-center">
+    <div class="container col-6 bg-light pt-2 mt-3">
+        <h4>Expérience professionnelle</h4>
+        <hr>
+        <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="poste">Fonction et poste occupé(e)<span class="text-danger"> *</span></label>
+                <input type="text" class="form-control" id="poste" placeholder="intitulé de la fonction"
+                formControlName="poste">
+            </div>
+
+            <div class="mt-2">
+                <label for="employeur">Employeur</label>
+                <input type="text" class="form-control" id="employeur" 
+                formControlName="employeur">
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-6">
+                    <label for="ville">Localité</label>
+                    <input type="text" id="ville" class="form-control" placeholder="Par ex.: Tunis"
+                    formControlName="ville">
+                </div>
+                <div class="col-6">
+                    <label for="pays">Pays</label>
+                    <select  class="form-select" id="pays" 
+                    formControlName="pays">
+                        <option ngValue="" selected> Selectionnez </option>
+                        <option ngValue="Tunisie">Tunisie</option>
+                        <option ngValue="Guinee">Guinée</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row d-flex mt-2">
+                <div class="col-5"><label for="fday">De</label></div>
+                <div class="col-7"><label for="lday">Au</label></div>
+            </div>
+
+            <div class="duree mt-2 d-flex ">
+                <div formGroupName="startDate" class="d-flex">
+                    <div>  
+                        <select class="form-select"
+                        formControlName="day">
+                            <option [selected]="true" >DD</option>
+                            <option *ngFor="let day of days" [value]="day">{{day}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select"
+                        formControlName="month">
+                            <option [selected]="true" >MM</option>
+                            <option *ngFor="let month of months" [value]="month">{{month}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select"
+                        formControlName="year">
+                            <option [selected]="true" >YYYY</option>
+                            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                        </select>
+                    </div>
+                </div>    
+
+                <div formGroupName="endDate" class="d-flex">
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" [disabled]="disabled"
+                        formControlName="day">
+                            <option [selected]="true">DD</option>
+                            <option *ngFor="let day of days" [value]="day">{{day}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" [disabled]="disabled"
+                        formControlName="month">
+                            <option [selected]="true" >MM</option>
+                            <option *ngFor="let month of months" [value]="month">{{month}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" [disabled]="disabled"
+                        formControlName="year">
+                            <option [selected]="true" >YYYY</option>
+                            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-left: 35px;">
+                   <mat-slide-toggle (change)="onToggleChange($event)">En cours</mat-slide-toggle>
+                </div>
+                
+            </div>
+
+            <div class="mt-2 mb-3">
+                <label for="textarea">Principales activités et responsabilités</label>
+                <textarea class="form-control text-secondary" id="textarea" formControlName="presentation" 
+                placeholder="- maintenance informatique..."></textarea>
+            </div>
+
+            <div class="d-flex justify-content-end button">
+                <div>
+                    <button class="btn btn-secondary">Reset</button>
+                </div>
+                <div class="ml-3">
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </div>            
+            </div>
+
+            <pre>
+                {{experienceForm.value | json}}
+            </pre>
+        </form>
+    </div>  
+</div>
+ 
+
+
+

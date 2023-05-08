@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-9">
+        <div>
+            <h5>{{oneExperience.poste}}</h5>
+            <h6>{{oneExperience.employeur}}</h6>
+            <p>{{oneExperience.startDate.day}}/{{oneExperience.startDate.month}}/{{oneExperience.startDate.year}} - {{oneExperience.endDate.day}}/{{oneExperience.endDate.month}}/{{oneExperience.endDate.year}} | {{oneExperience.ville}}, {{oneExperience.pays}}</p>
+            <p>{{oneExperience.presentation}}</p>
+        </div>
+    </div>
+    <div class="col-3 d-flex justify-content-between align-items-center">
+        <div>
+            <button class="btn" (click)="delete()">
+                <i class="bi bi-trash text-danger">Supprimer</i>
+            </button>
+        </div>
+    </div>
+    <hr *ngIf="oneExperience">
+</div>
+

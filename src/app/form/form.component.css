@@ -1,6 +1,5 @@
 img {
-    width: 200px;
-    height: 200px;
+    width: 80%;
     border-radius: 50%;
 }
 
@@ -11,4 +10,21 @@ img {
 
 .div-img {
     padding-left: 50px;
+}
+
+.container {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+}
+
+button {
+    margin-left: 16px;
+}
+
+.btnModifier{
+    margin-left: 25%;
+}
+
+.formFooter { 
+    bottom: 0;
 }

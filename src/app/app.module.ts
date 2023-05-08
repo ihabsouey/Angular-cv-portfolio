@@ -8,7 +8,12 @@ import { FormComponent } from './form/form.component';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CvModelComponent } from './cv-model/cv-model.component';
-import { PhotoProfilComponent } from './photo-profil/photo-profil.component';
+import { ExperienceProComponent } from './experience-pro/experience-pro.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { OneExperienceComponent } from './one-experience/one-experience.component';
+import { EducatinFormComponent } from './educatin-form/educatin-form.component';
+import { OneEducationComponent } from './one-education/one-education.component';
+
 
 
 @NgModule({
@@ -18,14 +23,18 @@ import { PhotoProfilComponent } from './photo-profil/photo-profil.component';
     FormComponent,
     HeaderComponent,
     CvModelComponent,
-    PhotoProfilComponent,
-   
+    ExperienceProComponent,
+    OneExperienceComponent,
+    EducatinFormComponent,
+    OneEducationComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

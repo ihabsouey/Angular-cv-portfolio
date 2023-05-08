@@ -10,5 +10,7 @@ export class LandingPageComponent {
 
    verifie(){
     this.ok = !this.ok
+    return this.ok
    }
+
 }

@@ -1,0 +1,128 @@
+
+<div class="row d-flex justify-content-center align-items-center">
+    <div class="container col-6 bg-light pt-2 mt-3">
+        <h4>Educations et formations</h4>
+        <hr>
+        <form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="formation">Intitulé de la qualification délivrée<span class="text-danger"> *</span></label>
+                <input type="text" class="form-control" id="formation"
+                formControlName="formation">
+            </div>
+
+            <div class="mt-2">
+                <label for="ecole">Organisme d'éducation et de formation</label>
+                <input type="text" class="form-control" id="ecole" 
+                formControlName="ecole">
+            </div> 
+
+            <div>
+                <label for="adresse">Adresse</label>
+                <input type="text" class="form-control" name="adresse" id="adresse"
+                placeholder="Par ex.: appartement, suite, étage..." 
+                formControlName="adresse">
+            </div>
+
+            <div>
+                <div class="row mt-2 mb-3">
+                    <div class="col-4">
+                        <label for="codePostal">Code Postal</label>
+                        <input type="text" id="codePostal" class="form-control"
+                        placeholder="Par ex.: 1010"
+                        formControlName="codePostal">
+                    </div>
+                    <div class="col-4">
+                        <label for="ville">Localité</label>
+                        <input type="text" id="ville" class="form-control"
+                        placeholder="Par ex.: Tunis"
+                        formControlName="ville">
+                    </div>
+                    <div class="col-4">
+                        <label for="pays">Pays</label>
+                        <select  class="form-select" id="pays"
+                        formControlName="pays">
+                            <option value=""> Selectionnez </option>
+                            <option value="Tunisie">Tunisie</option>
+                            <option value="Guinee">Guinée</option>
+                        </select>
+                    </div>
+                </div>
+            
+
+            <div class="row d-flex mt-2">
+                <div class="col-5"><label for="fday">De</label></div>
+                <div class="col-7"><label for="lday">Au</label></div>
+            </div>
+
+            <div class="duree mt-2 d-flex ">
+                <div formGroupName="startDate" class="d-flex">
+                    <div>  
+                        <select class="form-select"
+                        formControlName="day">
+                            <option  >DD</option>
+                            <option *ngFor="let day of days" [value]="day">{{day}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select"
+                        formControlName="month">
+                            <option  >MM</option>
+                            <option *ngFor="let month of months" [value]="month">{{month}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select"
+                        formControlName="year">
+                            <option  >YYYY</option>
+                            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                        </select>
+                    </div>
+                </div>    
+
+                <div formGroupName="endDate" class="d-flex">
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" 
+                        formControlName="day">
+                            <option >DD</option>
+                            <option *ngFor="let day of days" [value]="day">{{day}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" 
+                        formControlName="month">
+                            <option  >MM</option>
+                            <option *ngFor="let month of months" [value]="month">{{month}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" 
+                        formControlName="year">
+                            <option  >YYYY</option>
+                            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                        </select>
+                    </div>
+                </div>  
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-end button m-3">
+                <div>
+                    <button class="btn btn-secondary">Reset</button>
+                </div>
+                <div style="margin-left: 20px;">
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </div>            
+            </div>
+            
+            </div>
+            <pre>
+                {{educationForm.value | json }}
+            </pre>
+         </form>
+</div>  
+
+ 
+
+
+
