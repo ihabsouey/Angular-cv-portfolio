@@ -1,0 +1,37 @@
+<div class="row d-flex justify-content-center align-items-center">
+    <div class="container col-6 bg-light pt-2 mt-3">
+        <h4>Loisirs et centres d'interêt</h4>
+        <hr>
+    <form  [formGroup]="form" (ngSubmit)="onSubmit()">    
+            <div>
+                <label for="titre">Titre</label>
+                <input formControlName="titre" id="titre" type="text" class="form-control">
+            </div>
+            <div class="mt-2 mb-2">
+                <span class="btn btn-primary" (click)="addLoisir()">Ajouter</span>
+            </div>
+
+            <mat-chip-listbox>
+                <mat-chip-option  *ngFor="let loisir of selectedLoisirs"
+                class="text-white bg-secondary">
+                 {{loisir}}
+                <button type="button" matChipRemove (click)="deleteLoisir(loisir)">
+                    <i class="bi bi-x-circle text-white"></i>
+                </button> 
+                </mat-chip-option>
+            </mat-chip-listbox> 
+
+            <hr>
+
+        
+
+        <div class="d-flex justify-content-end mb-3 button">
+            <div>
+                <button class="btn btn-secondary">Reset</button>
+            </div>
+            <div style="margin-left: 20px;">
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </div>            
+        </div>
+    </form>
+</div>

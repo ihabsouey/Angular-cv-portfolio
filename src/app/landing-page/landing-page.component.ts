@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,9 +9,12 @@ import { Component } from '@angular/core';
 export class LandingPageComponent {
    ok : boolean = true
 
+   constructor(private router : Router){}
+
    verifie(){
     this.ok = !this.ok
-    return this.ok
+    
+    this.router.navigateByUrl('/form')
    }
 
 }

@@ -10,11 +10,16 @@ export class UserDataService {
   constructor() {}
 
   addToInfoPerso(data : any){
-    this.infosPerso?.push(data)
+    if(this.infosPerso.length != 0)
+      this.infosPerso[0] = data
+    else
+      this.infosPerso?.push(data)
+    
   }
   
   getInfosPerso(){
     return this.infosPerso
   }
+
 
 }

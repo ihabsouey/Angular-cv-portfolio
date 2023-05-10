@@ -17,10 +17,21 @@ export class OneEducationComponent {
  delete(){   
     Swal.fire({
       title: 'Etes vous sûr(e)?',
+      text: `De supprimer ${this.oneEducation.formation}?`,
+      input: 'text',
+      inputPlaceholder: 'supprimer',
       showCancelButton: true,
-      confirmButtonColor : '#dc3545',
+      confirmButtonColor: '#dc3545',
       confirmButtonText: 'Supprimer',
       cancelButtonText: 'Annuler',
+      preConfirm: (inputValue) => {
+        if (inputValue === 'supprimer') {
+          return true;
+        } else {
+          Swal.showValidationMessage('tapez "supprimer" pour confirmer !');
+          return false;
+        }
+      },
     }).then((result) => {
       if (result.isConfirmed) {
         this.education.educations.splice(this.index, 1)

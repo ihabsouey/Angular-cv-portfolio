@@ -13,6 +13,19 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { OneExperienceComponent } from './one-experience/one-experience.component';
 import { EducatinFormComponent } from './educatin-form/educatin-form.component';
 import { OneEducationComponent } from './one-education/one-education.component';
+import { CompetenceFormComponent } from './competence-form/competence-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MAT_CHIPS_DEFAULT_OPTIONS, MatChipsModule } from '@angular/material/chips';
+import { COMMA, SPACE } from '@angular/cdk/keycodes';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { OneCompetenceComponent } from './one-competence/one-competence.component';
+import { LangueFormComponent } from './langue-form/langue-form.component';
+import { LoisirFormComponent } from './loisir-form/loisir-form.component';
+import { OneLoisirComponent } from './one-loisir/one-loisir.component';
+
+
+
 
 
 
@@ -27,6 +40,12 @@ import { OneEducationComponent } from './one-education/one-education.component';
     OneExperienceComponent,
     EducatinFormComponent,
     OneEducationComponent,
+    CompetenceFormComponent,
+    OneCompetenceComponent,
+    LangueFormComponent,
+    LoisirFormComponent,
+    OneLoisirComponent,
+ 
   
   ],
   imports: [
@@ -34,9 +53,20 @@ import { OneEducationComponent } from './one-education/one-education.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatChipsModule,
+    MatInputModule,
+    MatIconModule 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_CHIPS_DEFAULT_OPTIONS,
+      useValue: {
+        separatorKeyCodes: [COMMA, SPACE]
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,23 +1,24 @@
 import { Component, Input } from '@angular/core';
-import { ExperienceService } from '../experience.service';
+import { LoisirService } from '../loisir.service';
 import Swal from 'sweetalert2';
 
-
 @Component({
-  selector: 'app-one-experience',
-  templateUrl: './one-experience.component.html',
-  styleUrls: ['./one-experience.component.css']
+  selector: 'app-one-loisir',
+  templateUrl: './one-loisir.component.html',
+  styleUrls: ['./one-loisir.component.css']
 })
-export class OneExperienceComponent {
-  @Input() oneExperience : any = {};
-  @Input() index : any
+export class OneLoisirComponent {
+  @Input() oneLoisir! : string
+  @Input() index! : any
 
-  constructor(private experience : ExperienceService){}
+  constructor(
+    private loisir : LoisirService
+  ){}
 
   delete(){   
     Swal.fire({
       title: 'Etes vous sûr(e)?',
-      text: `De supprimer ${this.oneExperience.poste}?`,
+      text: `De vouloir supprimer <<${this.oneLoisir}>>?`,
       input: 'text',
       inputPlaceholder: 'supprimer',
       showCancelButton: true,
@@ -34,10 +35,8 @@ export class OneExperienceComponent {
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        this.experience.experiences.splice(this.index, 1)
+        this.loisir.loisirs.splice(this.index, 1)
       }
     });    
- }    
- }
-  
-
+ } 
+}

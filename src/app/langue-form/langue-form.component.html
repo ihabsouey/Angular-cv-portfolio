@@ -1,0 +1,59 @@
+<div class="row d-flex justify-content-center align-items-center">
+    <div class="container col-6 bg-light pt-2 mt-3">
+        <h4>Compétences linguistiques</h4>
+        <hr>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">     
+                <div>
+                    <label for="maternelle">Langue maternelle</label>
+                    <input formControlName="maternelle" required id="maternelle" type="text" class="form-control">
+                </div>
+                <div class="mt-2 mb-2" >
+                    <button type="button" class="btn btn-primary" (click)="addLangue()" [disabled]="disabled">Ajouter</button>
+                </div>
+    
+                <mat-chip-listbox>
+                    <mat-chip-option *ngIf="lMaternelle" (removed)="removeLangue()"
+                    class="text-white bg-secondary">
+                     {{lMaternelle}}
+                    <button matChipRemove>
+                        <i class="bi bi-x-circle text-white"></i>
+                    </button> 
+                    </mat-chip-option>
+                </mat-chip-listbox> 
+    
+                <hr>
+                <!------------------------------------------------------------------------------------>
+    
+                <div>
+                    <label for="autres">Autres Langues</label>
+                    <input formControlName="autre" id="autres" type="text" class="form-control">
+                </div>
+                <div class="mt-2 mb-2">
+                    <span class="btn btn-primary" (click)="addAutresLangue()">Ajouter</span>
+                </div>
+    
+                <mat-chip-listbox>
+                    <mat-chip-option *ngFor="let langue of selectedLangues" (removed)="removeAutresLangue(langue)"
+                    class="text-white bg-secondary">
+                    {{langue}}
+                    <button matChipRemove>
+                        <i class="bi bi-x-circle text-white"></i>
+                    </button> 
+                    </mat-chip-option>
+                </mat-chip-listbox> 
+    
+                <hr>
+
+                <!------------------------------------------------------------------------------------>
+            <div class="d-flex justify-content-end mb-3 button">
+                <div>
+                    <button class="btn btn-secondary">Reset</button>
+                </div>
+                <div style="margin-left: 20px;">
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </div>            
+            </div>
+        </form>
+    </div>
+</div>
+  

@@ -1,2 +1,8 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+}
 
-  
+.navbar {
+    border : 1px, solid, red;
+}

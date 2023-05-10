@@ -1,6 +1,6 @@
-<div class="row d-flex flex-column justify-content-center align-items-center mt-3 box">
+<div class="row d-flex flex-column justify-content-center align-items-center m-3 box">
 
-    <div *ngIf="cache"  class="container col-6 bg-light pt-3">
+    <div *ngIf="cache"  class="container col-6 bg-light pt-3 shadow-lg">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
             <div class="row">
                 <div class="col-4 div-img">
@@ -136,7 +136,7 @@
 
     <div *ngIf="!cache" >
         <div class="row d-flex flex-column justify-content-center align-items-center">
-            <div class="col-6 bg-light d-flex justify-content-between m-3"style="border:1px solid red">
+            <div class="col-6 bg-light d-flex justify-content-between m-3 shadow-lg">
                 <div class="col-4 div-img mt-4 mb-3">
                     <img class="img-thumbnail" [src]="newUrlLink" alt="avatar profil">
                     <p class="m-2">
@@ -157,8 +157,8 @@
 
             <!--------------------------Expériences Professionnles--------------------------------->
 
-            <div *ngIf="cacheEpList"  class="col-4 text-secondary mb-3 bg-light">
-                <h4>Experiences Professionnelles</h4>
+            <div *ngIf="cacheEpList"  class="col-4 text-secondary mb-3 bg-light shadow-sm">
+                <h4 class="text-black">Experiences Professionnelles</h4>
                 <hr class="text-primary">
                 <app-one-experience *ngFor="let experience of experiences; let i = index" [oneExperience]="experience"
                 [index]="i"></app-one-experience>
@@ -171,8 +171,8 @@
 
             <!--------------------------Educations et Formations------------------------------------>
 
-            <div *ngIf="cacheEdList"  class="col-4 text-secondary mb-3 bg-light">
-                <h4>Educations et Formations</h4>
+            <div *ngIf="cacheEdList"  class="col-4 text-secondary mb-3 bg-light shadow-sm">
+                <h4 class="text-black">Educations et Formations</h4>
                 <hr class="text-primary">
                 <app-one-education *ngFor="let education of educations; let i = index" [oneEducation]="education"
                 [index]="i"></app-one-education>
@@ -183,21 +183,81 @@
 
             <!--------------------------------------End--------------------------------------------->
 
-            <div class="col-5 text-secondary bg-light" >
-                <h4>Créer une section</h4>
+            <!-------------------------------Compétences--------------------------------------------->
+
+            <div *ngIf="cacheCList"  class="col-4 text-secondary mb-3 bg-light shadow-sm">
+                <h4 class="text-black">Compétences</h4>
+                <hr class="text-primary">
+                <mat-chip-listbox>
+                    <app-one-competence *ngFor="let competence of competences; let i = index" [oneCompetence]="competence"
+                    [index]="i"></app-one-competence>
+                </mat-chip-listbox>
+                <button class="btn" routerLink="../c">
+                    <i class="bi bi-plus-circle text-primary">Ajouter une compétence</i>
+                </button>
+            </div>
+
+            <!--------------------------------------End--------------------------------------------->  
+
+            <!----------------------------------Langues--------------------------------------------->
+
+            <div *ngIf="cacheLlist" class=" langues col-4 text-secondary mb-3 bg-light shadow-sm">
+                <h4 class="text-black">Langues</h4>
+                <hr class="text-primary">
+                <div class="row">
+                    <div class="col-8">
+                        <h6>Langue maternelle</h6>
+                        <div *ngIf="langueMaternelle" class="border border-success w-50 m-2">
+                            {{langueMaternelle | uppercase }}
+                        </div>
+                        <h6>Autre(s) Langue(s)</h6>
+                        <div *ngFor="let langue of autresLangues" class="border border-success w-50 m-2">
+                             {{langue | uppercase}}
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn w-75" (click)="modifierLangues()">
+                            <i class="bi bi-pen text-primary btnModifier">Modifier</i>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!--------------------------------------End--------------------------------------------->
+
+            <!----------------------------------Loisirs--------------------------------------------->
+
+            <div *ngIf="cacheLoisirList" class="col-4 text-secondary mb-3 bg-light shadow-sm">
+                <h4 class="text-black">Loisirs</h4>
+                <hr class="text-primary">
+                <app-one-loisir *ngFor="let loisir of loisirs; let i = index" [oneLoisir]="loisir"
+                [index]="i"></app-one-loisir>
+                <button class="btn" routerLink="../l">
+                    <i class="bi bi-plus-circle text-primary"> Ajouter un loisir</i>
+                </button>
+            </div>  
+
+            <!--------------------------------------End--------------------------------------------->
+
+            <div class="col-5 text-secondary bg-light shadow-lg" >
+                <h4 class="text-black">Créer une section</h4>
                 <hr>
                 <form>
                     <label for="section">Sélectionner le type de section</label>
                     <select #mySelect="ngModel" ngModel name="mySelect" id="" class="form-select"
                     (change)="onInputChange($event)">
                         <option ngValue="" selected>Sélectionner</option>
-                        <option ngValue="EP">Expérience professionnelle</option>
-                        <option ngValue="EF" >Education et formation</option>
+                        <option ngValue="EP" [hidden]="cacheEpList">Expérience professionnelle</option>
+                        <option ngValue="EF" [hidden]="cacheEdList">Education et formation</option>
+                        <option ngValue="C" [hidden]="cacheCList">Compétences</option>
+                        <option ngValue="LANG" [hidden]="cacheLlist">Langues</option>
+                        <option ngValue="LOISIR" [hidden]="cacheLoisirList">Loisirs</option>
                     </select>
                     <div class="d-flex justify-content-end m-3">
                         <div><button class="btn btn-secondary">Annuler</button></div>
                         <div>
-                            <button class="btn btn-primary"(click)="switchForm(mySelect)" [disabled]="disable">Ajouer une section</button>
+                            <button class="btn btn-primary"(click)="switchForm(mySelect)" [disabled]="disable">Ajouter une section</button>
                         </div>
                     </div>
                 </form>
@@ -207,17 +267,6 @@
     </div>
 </div>
 
-<div class="row d-flex justify-content-center align-items-center">
-    <div class="col-6 formFooter">    
-        <div class="d-flex justify-content-between mb-3 mt-3 button" >
-            <div>
-                <button class="btn"> <i class="bi bi-x"></i>Quitter</button>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Next<i class="bi bi-caret-right-fill"></i></button>
-            </div>            
-        </div>
-    </div>
-</div>
+
 
 
