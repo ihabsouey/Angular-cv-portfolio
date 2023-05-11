@@ -1,3 +1,5 @@
+import { FirstCvModelComponent } from './first-cv-model/first-cv-model.component';
+import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -9,6 +11,7 @@ import { CompetenceFormComponent } from './competence-form/competence-form.compo
 import { LangueFormComponent } from './langue-form/langue-form.component';
 import { LoisirFormComponent } from './loisir-form/loisir-form.component';
 
+
 const routes: Routes = [
   {path: 'form', component: FormComponent},
   {path: 'cv', component: CvModelComponent},
@@ -17,6 +20,8 @@ const routes: Routes = [
   {path: 'c', component: CompetenceFormComponent},
   {path: 'lang', component: LangueFormComponent},
   {path: 'l', component: LoisirFormComponent},
+  {path: 'template', component : TemplatesCVComponent},
+  {path: 'first', component : FirstCvModelComponent}
 ];
 
 @NgModule({

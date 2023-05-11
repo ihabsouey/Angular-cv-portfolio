@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent {
    ok : boolean = true
+   activatedRoute!: ActivatedRoute;
 
    constructor(private router : Router){}
 
@@ -15,6 +16,10 @@ export class LandingPageComponent {
     this.ok = !this.ok
     
     this.router.navigateByUrl('/form')
+   }
+
+   goToTemplateCV(){
+    this.router.navigate(['template'], {relativeTo : this.activatedRoute})
    }
 
 }

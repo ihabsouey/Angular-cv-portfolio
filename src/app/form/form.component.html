@@ -6,7 +6,8 @@
                 <div class="col-4 div-img">
                     <img class="img-thumbnail mt-2" [src]="urlLink" alt="avatar profil">
                     <p class="m-2">
-                        <input class="form-control" type="file" (change)="selectedFiles($event)">
+                        <input class="form-control form-control-sm" type="file" (change)="selectedFiles($event)"
+                        #img="ngModel" ngModel required  [(ngModel)]="newUrlLink">
                     </p>
                 </div>
                 <div class="col-7">
@@ -15,8 +16,8 @@
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="nom">Nom <span class=" text-danger">*</span> </label>
-                            <input type="text" class="form-control" id="nom" name="fname"
-                            #fname="ngModel" required ngModel >  
+                            <input type="text" class="form-control" id="nom" name="fname" 
+                            #fname="ngModel" required ngModel [(ngModel)]="nom">  
                             <p *ngIf="fname.invalid && fname.dirty" class="alert alert-danger">
                                 This field is required
                             </p>  
@@ -26,26 +27,30 @@
                         <div class="col-6 form-group">
                             <label for="prenom">Prenom<span class=" text-danger">*</span></label>
                             <input type="text" class="form-control" id="prenom" name="lname"
-                            #lname="ngModel" required ngModel> 
+                            #lname="ngModel" required ngModel [(ngModel)]="prenom"> 
                             <p *ngIf="lname.invalid && lname.dirty" class="alert alert-danger">This field is required</p>      
                         </div>
     
                     </div>
                     
                     <div class="mt-2 mb-3">
-                        <label for="textarea">Je me présente</label>
+                        <label for="textarea">Je me présente <span class=" text-danger">*</span></label>
                         <textarea class="form-control text-secondary" id="textarea" name="presentation" 
                         placeholder="Vous pouvez fournir une description de vous même ici..."
-                        #presentation="ngModel" ngModel
+                        #presentation="ngModel" ngModel required [(ngModel)]="pres"
                         ></textarea>
                     </div>
+                    <p *ngIf="presentation.dirty && presentation.invalid  && f.invalid" class="alert alert-danger"
+                    >L'image* et les (informations personnelles)* sont obligatoires !</p>
     
                     <h3>Contact</h3>
                     <hr>   
                     <div>
                         <label for="email">Adresse Electronique</label>
                         <input  type="text" class="form-control" placeholder="par ex.: dieng.ibrahima@gmail.com" id="email" name="email"
-                        #email="ngModel" ngModel>
+                        #email="ngModel" ngModel email>
+                        <p *ngIf="email.invalid && email.dirty" class="alert alert-danger"
+                        >Veuillez saisir un email valid !</p>
                     </div> 
                     
                     <div class="mt-2">
@@ -54,13 +59,15 @@
                             <div class="col-6">
                                 <select class="form-select" name="pays" id="codePays" name="codePays" 
                                 #codePays="ngModel" ngModel>
-                                    <option value="" selected> Selectionnez </option>
+                                    <option ngValue="0" selected> Selectionnez </option>
                                     <option value="+216"> Tunisie +216</option>
                                     <option value="+224"> Guinée +216</option>
                                 </select>
+                                <p *ngIf="codePays.untouched && tel.dirty" class="alert alert-danger" 
+                                >Veuillez sair le code du pays !</p>
                             </div>
                             <div class="col-6">
-                                <input  type="tel" class="form-control" placeholder="par ex.: 58 071 373" id="tel" name="tel" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}"
+                                <input  type="tel" class="form-control" placeholder="par ex.: 58-071-373" id="tel" name="tel" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}"
                                 #tel="ngModel" ngModel>
                             </div>
                         </div>
@@ -76,9 +83,11 @@
                                     <option value="in">LinkedIn</option>
                                     <option value="git">GitHub</option>
                                 </select>
+                                <p *ngIf="socialMedia.untouched && linkSM.dirty" class="alert alert-danger" 
+                                >Veuillez sair le type de plateforme !</p>
                             </div>
                             <div class="col-6">
-                                <input type="text" class="form-control" name="linkSM"
+                                <input type="text" class="form-control" name="linkSM" placeholder="enter le lien"
                                 #linkSM="ngModel" ngModel>
                             </div>
                         </div>
@@ -122,15 +131,18 @@
 
                     <div class="d-flex justify-content-end mb-3 button">
                         <div>
-                            <button class="btn btn-secondary">Reset</button>
+                            <button type="button" class="btn btn-secondary" (click)="reset(f)">Reset</button>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                            <button type="submit" class="btn btn-primary" >Sauvegarder</button>
                         </div>            
                     </div>
 
                 </div>
             </div>
+            <pre>
+                {{f.value | json }}
+            </pre>
         </form>  
     </div>
 
@@ -140,7 +152,7 @@
                 <div class="col-4 div-img mt-4 mb-3">
                     <img class="img-thumbnail" [src]="newUrlLink" alt="avatar profil">
                     <p class="m-2">
-                        <input class="form-control" type="file" (change)="selectedFiles($event)">
+                        <input class="form-control" type="file"  (change)="selectedFiles($event)">
                     </p>
                 </div>
                 <div class="text-secondary align-self-center">
@@ -207,11 +219,11 @@
                 <div class="row">
                     <div class="col-8">
                         <h6>Langue maternelle</h6>
-                        <div *ngIf="langueMaternelle" class="border border-success w-50 m-2">
+                        <div *ngIf="langueMaternelle" class="border border-black w-50 m-2 text-dark shadow-sm">
                             {{langueMaternelle | uppercase }}
                         </div>
                         <h6>Autre(s) Langue(s)</h6>
-                        <div *ngFor="let langue of autresLangues" class="border border-success w-50 m-2">
+                        <div *ngFor="let langue of autresLangues" class="border border-black w-50 m-2 text-dark shadow-sm">
                              {{langue | uppercase}}
                         </div>
                     </div>
@@ -255,7 +267,7 @@
                         <option ngValue="LOISIR" [hidden]="cacheLoisirList">Loisirs</option>
                     </select>
                     <div class="d-flex justify-content-end m-3">
-                        <div><button class="btn btn-secondary">Annuler</button></div>
+                        <div><button class="btn btn-secondary" >Annuler</button></div>
                         <div>
                             <button class="btn btn-primary"(click)="switchForm(mySelect)" [disabled]="disable">Ajouter une section</button>
                         </div>

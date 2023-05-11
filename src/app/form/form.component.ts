@@ -7,6 +7,8 @@ import { EducationService } from '../education.service';
 import { CompetenceService } from '../competence.service';
 import { LanguesService } from '../langues.service';
 import { LoisirService } from '../loisir.service';
+import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 
@@ -18,7 +20,7 @@ import { LoisirService } from '../loisir.service';
 })
 export class FormComponent {
   urlLink = "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
-  newUrlLink! : String
+  newUrlLink! : any
   cache = false
   cacheEpList = false  // pour gérer l'affissage du div de "Expérience profossionnelle" et option dans select
   cacheEdList = false  // pour gérer l'affissage du div de "Education et formation" et option dans select
@@ -37,6 +39,12 @@ export class FormComponent {
   langueMaternelle : any = "" 
   autresLangues : any[] = []
   loisirs : any[] = []
+
+  // two way binding avec informtion form pour mofication
+  // initialiser dans ngOnInit
+  nom = ""
+  prenom = ""
+  pres = ""
   
   constructor(
     private userDataService : UserDataService,
@@ -161,18 +169,29 @@ export class FormComponent {
     this.newUrlLink = this.img.getUrlLink()
   }
  
-  onSubmit(f: any){
-    //ajouter les infos enregistrer la service
-    this.userDataService.addToInfoPerso(f.value)
+  onSubmit(f: NgForm){
+    if(Object.keys(f.value).length != 0){
+      //ajouter les infos enregistrer dans le service
+      this.userDataService.addToInfoPerso(f.value)
 
-    this.newUrlLink = this.img.getUrlLink()
+      this.newUrlLink = this.img.getUrlLink()
 
-    this.cache=!this.cache
+      this.cache=!this.cache
 
-    //init fname and lname and presentation
-    this.initValues()
+      //init fname and lname and presentation
+      this.initValues()
 
-   // this.router.navigateByUrl('/cv')
+    // this.router.navigateByUrl('/cv')
+    }else{
+      Swal.fire({
+        title: 'Attention !',
+        text: 'Veuillez remplir les champs obligatoires !',
+        confirmButtonColor: '#ffcc00',
+        confirmButtonText: 'ok',
+      });    
+    }
+
+
   }
 
   // init les valeur pour affichage dans div remplir section
@@ -180,11 +199,22 @@ export class FormComponent {
     this.fname = this.userDataService.getInfosPerso()[0].fname
     this.lname = this.userDataService.getInfosPerso()[0].lname
     this.presentation = this.userDataService.getInfosPerso()[0].presentation
+
+   this.nom = this.fname
+   this.prenom = this.lname
+   this.pres = this.presentation
   }
 
   // pour cacher le div infos perso oubien le div pour les section ou inversement
   changeCacheValue(){
     this.cache = !this.cache
+    //this.urlLink = this.newUrlLink
+  }
+
+  // pour annuler une selection de section
+  annuler(f:any){
+    this.disable = !this.disable
+  
   }
 
   //upload image
@@ -225,6 +255,12 @@ export class FormComponent {
   //modifier langues
   modifierLangues(){
     this.router.navigateByUrl('/lang')
+  }
+
+
+  // reset form
+  reset(f:NgForm){
+     f.reset()
   }
  
 }

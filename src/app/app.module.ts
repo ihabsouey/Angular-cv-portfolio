@@ -23,9 +23,9 @@ import { OneCompetenceComponent } from './one-competence/one-competence.componen
 import { LangueFormComponent } from './langue-form/langue-form.component';
 import { LoisirFormComponent } from './loisir-form/loisir-form.component';
 import { OneLoisirComponent } from './one-loisir/one-loisir.component';
-
-
-
+import { CommonModule } from '@angular/common';
+import { FirstCvModelComponent } from './first-cv-model/first-cv-model.component';
+import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
 
 
 
@@ -45,8 +45,9 @@ import { OneLoisirComponent } from './one-loisir/one-loisir.component';
     LangueFormComponent,
     LoisirFormComponent,
     OneLoisirComponent,
- 
-  
+    FirstCvModelComponent,
+    TemplatesCVComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,9 @@ import { OneLoisirComponent } from './one-loisir/one-loisir.component';
     MatFormFieldModule,
     MatChipsModule,
     MatInputModule,
-    MatIconModule 
+    MatIconModule,
+    CommonModule,
+
   ],
   providers: [
     {
