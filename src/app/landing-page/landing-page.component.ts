@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { AuthService } from '../auth.service';
+
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -8,6 +12,7 @@ import { AuthService } from '../auth.service';
 })
 export class LandingPageComponent {
    ok : boolean = true
+   activatedRoute!: ActivatedRoute;
 
    constructor(private router : Router , private auth :AuthService){}
    displayNamee = this.auth.displayName
@@ -28,8 +33,15 @@ export class LandingPageComponent {
    }
 
 
+
 }
 function resolve(arg0: boolean) {
   throw new Error('Function not implemented.');
+
+   goToTemplateCV(){
+    this.router.navigate(['template'], {relativeTo : this.activatedRoute})
+   }
+
+
 }
 

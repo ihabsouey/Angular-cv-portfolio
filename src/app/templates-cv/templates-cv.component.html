@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <hr>
+    <h3>Selectionner un modele de cv</h3>
+    <p>Choisissez le modèle que vous souhaitez utiliser pour votre CV dans les modèles Europass disponibles.</p>
+    <div class="row">
+        <div class="col-4">
+            <div>
+                <div (click)="showModel()">
+                    <img class="rounded" src="https://uifresh.net/wp-content/uploads/2021/12/resume-cv-design-1.png" alt="">
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="viewCv col-8 d-flex">
+           <app-first-cv-model></app-first-cv-model>
+        </div>
+        
+    </div>
+</div>
