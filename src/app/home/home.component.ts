@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
-import { ActivatedRoute, Router } from '@angular/router';
-
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
 })
-export class HeaderComponent {
-  ok: boolean = true;
+export class HomeComponent {
   constructor(private router: Router, private auth: AuthService) {}
-  verifie() {
+  ok: boolean = true;
+  verifiee() {
     this.ok = !this.ok;
 
     this.router.navigateByUrl('/form');
