@@ -81,12 +81,7 @@ import { HttpClientModule } from '@angular/common/http';
     TMPComponent,
     OneExperienceCvComponent,
     OneEducationCvComponent,
-    UnEcucationComponent
- 
-
-
-
-    
+    UnEcucationComponent,    
     HomeComponent,
     FooterComponent,
     ContactComponent,
@@ -107,7 +102,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule,
 
     CommonModule,
-    FormsModule
+    FormsModule,
 
 
     HttpClientModule,
