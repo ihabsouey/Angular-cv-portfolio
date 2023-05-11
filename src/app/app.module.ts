@@ -23,9 +23,24 @@ import { OneCompetenceComponent } from './one-competence/one-competence.componen
 import { LangueFormComponent } from './langue-form/langue-form.component';
 import { LoisirFormComponent } from './loisir-form/loisir-form.component';
 import { OneLoisirComponent } from './one-loisir/one-loisir.component';
+
+import { environment } from '../environments/environment';
+
+
+//firebase
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
+
+
 import { CommonModule } from '@angular/common';
 import { FirstCvModelComponent } from './first-cv-model/first-cv-model.component';
 import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
+
 
 
 
@@ -45,9 +60,16 @@ import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
     LangueFormComponent,
     LoisirFormComponent,
     OneLoisirComponent,
+
+    RegisterComponent,
+    LoginComponent,
+ 
+  
+
     FirstCvModelComponent,
     TemplatesCVComponent,
     
+
   ],
   imports: [
     BrowserModule,
@@ -59,10 +81,16 @@ import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
     MatChipsModule,
     MatInputModule,
     MatIconModule,
+
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    
+
     CommonModule,
 
   ],
   providers: [
+    
     {
       provide: MAT_CHIPS_DEFAULT_OPTIONS,
       useValue: {
