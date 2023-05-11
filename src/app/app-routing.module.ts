@@ -18,21 +18,21 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
-  { path: 'form', component: FormComponent, canActivate: [AuthGuard] },
-  { path: '', component: HomeComponent },
 
+  //{path: 'form', component: FormComponent ,canActivate:[AuthGuard]},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cv', component: CvModelComponent },
-  { path: 'ep', component: ExperienceProComponent },
-  { path: 'ef', component: EducatinFormComponent },
-  { path: 'c', component: CompetenceFormComponent },
-  { path: 'lang', component: LangueFormComponent },
-  { path: 'l', component: LoisirFormComponent },
-  { path: 'template', component: TemplatesCVComponent },
-  { path: 'first', component: FirstCvModelComponent },
+  
+  {path : '', component : FormComponent},
+  {path: 'cv', component: CvModelComponent},
+  {path: 'ep', component: ExperienceProComponent},
+  {path: 'ef', component: EducatinFormComponent},
+  {path: 'c', component: CompetenceFormComponent},
+  {path: 'lang', component: LangueFormComponent},
+  {path: 'l', component: LoisirFormComponent},
+  {path: 'template', component : TemplatesCVComponent},
+  {path: 'first', component : FirstCvModelComponent}
 
-  { path: 'contact', component: ContactComponent },
 ];
 
 @NgModule({

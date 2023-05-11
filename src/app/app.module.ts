@@ -12,7 +12,7 @@ import { ExperienceProComponent } from './experience-pro/experience-pro.componen
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { OneExperienceComponent } from './one-experience/one-experience.component';
 import { EducatinFormComponent } from './educatin-form/educatin-form.component';
-import { OneEducationComponent } from './one-education/one-education.component';
+
 import { CompetenceFormComponent } from './competence-form/competence-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
@@ -40,11 +40,21 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { FirstCvModelComponent } from './first-cv-model/first-cv-model.component';
 import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
+
+import { TMPComponent } from './tmp/tmp.component';
+import { OneExperienceCvComponent } from './one-experience-cv/one-experience-cv.component';
+import { OneEducationCvComponent } from './one-education-cv/one-education-cv.component';
+import { UnEcucationComponent } from './un-ecucation/un-ecucation.component';
+
+
+
+
+
+
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +65,7 @@ import { HttpClientModule } from '@angular/common/http';
     ExperienceProComponent,
     OneExperienceComponent,
     EducatinFormComponent,
-    OneEducationComponent,
+  
     CompetenceFormComponent,
     OneCompetenceComponent,
     LangueFormComponent,
@@ -65,11 +75,22 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     LoginComponent,
 
+ 
     FirstCvModelComponent,
     TemplatesCVComponent,
+    TMPComponent,
+    OneExperienceCvComponent,
+    OneEducationCvComponent,
+    UnEcucationComponent
+ 
+
+
+
+    
     HomeComponent,
     FooterComponent,
     ContactComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -84,9 +105,13 @@ import { HttpClientModule } from '@angular/common/http';
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    HttpClientModule,
 
     CommonModule,
+    FormsModule
+
+
+    HttpClientModule,
+
   ],
   providers: [
     {

@@ -7,6 +7,7 @@ import { EducationService } from '../education.service';
 import { CompetenceService } from '../competence.service';
 import { LanguesService } from '../langues.service';
 import { LoisirService } from '../loisir.service';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-first-cv-model',
@@ -25,8 +26,9 @@ export class FirstCvModelComponent {
 
   // selon social media type de logo
   sm : any = ""
-  startDate! : Date
-  endDate! : Date
+
+  color : ThemePalette 
+ 
 
   constructor(
     private userDataService : UserDataService,
@@ -46,7 +48,11 @@ export class FirstCvModelComponent {
    this.competences = this.competence.getCompetences()
    this.loisirs = this.loisir.loisirs
    this.urlLink = this.img.getUrlLink()
+   this.autresLangues = this.langue.getLAutres()
+   this.langueMaternelle = this.langue.getLMaternelle()
 
-   this.sm = this.infosPerso[0].socialMedia === 'in' ? "bi bi-linkedin" : "bi bi-github"
+
+   //this.sm = this.infosPerso[0].socialMedia === 'in' ? "bi bi-linkedin" : "bi bi-github"
+  
   }
 }

@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserDataService } from '../user-data.service';
 import { ActivatedRoute, Router} from '@angular/router';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-templates-cv',
@@ -13,10 +14,16 @@ export class TemplatesCVComponent {
   activatedRoute!: ActivatedRoute
 
   constructor(
-    private router : Router
+    private router : Router,
+    private location : Location
   ){}
 
   showModel(){
-    this.router.navigate([''], {relativeTo : this.activatedRoute})
+   // this.router.navigate([''], {relativeTo : this.activatedRoute})
+  }
+
+  goBack(){
+    this.location.back()
+    sessionStorage.setItem('fromTemplate', 'false')
   }
 }

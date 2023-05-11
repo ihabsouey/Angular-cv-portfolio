@@ -33,6 +33,8 @@ export class FormComponent {
 
   disable = true  // pour désactiver le bouton si une section n'est pas selectionner
 
+  activatedRoute!: ActivatedRoute
+
   experiences : any[] = []
   educations : any[] = []
   competences : any[] = []
@@ -70,6 +72,26 @@ export class FormComponent {
     this.autresLangues = this.langue.getLAutres()
     // init les loisirs
     this.loisirs = this.loisir.loisirs
+
+/*    if(sessionStorage.getItem('fromTemplate')==='false'){
+      this.cache = false
+      this.cacheEpList = true
+      if(this.educations.length != 0)
+        this.cacheEdList = true  
+      
+      if(this.competences.length != 0)
+        this.cacheCList = true
+
+      if(this.loisirs.length != 0)
+        this.cacheLoisirList = true   
+      
+      if(this.autresLangues.length != 0)
+        this.cacheLlist = true
+
+        if(this.experiences.length != 0)
+        this.cacheEpList = true 
+
+    } */
 
     if(sessionStorage.getItem('cacheFromExperience')==='false'){
       this.cache = false
@@ -233,15 +255,15 @@ export class FormComponent {
   // Selon la valeur de la section affiche formulaire correspondant
   switchForm(mySelect:any){   
       switch(mySelect.value){
-        case "EP" : this.router.navigateByUrl('/ep')
+        case "EP" : this.router.navigate(['ep'], {relativeTo : this.activatedRoute})
           break
-        case "EF" : this.router.navigateByUrl('/ef')
+        case "EF" : this.router.navigate(['ef'], {relativeTo : this.activatedRoute})
           break
-        case "C" : this.router.navigateByUrl('/c')
+        case "C" : this.router.navigate(['c'], {relativeTo : this.activatedRoute})
           break
-        case "LANG" : this.router.navigateByUrl('/lang')
+        case "LANG" : this.router.navigate(['lang'], {relativeTo : this.activatedRoute})
           break
-        case "LOISIR" : this.router.navigateByUrl('/l')
+        case "LOISIR" : this.router.navigate(['l'], {relativeTo : this.activatedRoute})
           break 
       }
   }
@@ -261,6 +283,10 @@ export class FormComponent {
   // reset form
   reset(f:NgForm){
      f.reset()
+  }
+
+  goToTemplateCV(){
+    this.router.navigate(['template'], {relativeTo : this.activatedRoute})
   }
  
 }
