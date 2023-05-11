@@ -6,7 +6,9 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AuthService {
 
-  constructor(private afAuth : AngularFireAuth) { }
+  constructor(private afAuth : AngularFireAuth) {
+    
+   }
 
   login(email : string, password : string){
     return this.afAuth.signInWithEmailAndPassword(email,password);
@@ -20,9 +22,12 @@ export class AuthService {
   hasUser(){
     return this.afAuth.authState;
   }
-  get displayName(){
-    return this.afAuth.currentUser.then(user =>{
-      return user?.displayName;
-    })
+  get email(){
+    return this.afAuth.authState;
   }
+  
+  
+
+  
+  
 }
