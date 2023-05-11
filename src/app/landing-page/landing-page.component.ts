@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
+import { jsPDF } from "jspdf";
 
 @Component({
   selector: 'app-landing-page',
@@ -13,24 +14,66 @@ export class LandingPageComponent {
   ok: boolean = true;
   activatedRoute!: ActivatedRoute;
 
-  constructor(private router: Router, private auth: AuthService) {}
-  displayNamee = this.auth.displayName;
+  constructor(private router: Router, private auth: AuthService) { }
+  // get the email of the user from the auth service
+  mail: any;
+  ngOnInit(): void {
+    this.getuserEmail()
+      .then(result => {
+        this.mail = result;
+      }
+      )
+    const doc = new jsPDF();
+
+    doc.text("Hello world!", 10, 10);
+    // doc.save("a4.pdf");
+
+  }
 
   verifie() {
     this.ok = !this.ok;
-
     this.router.navigateByUrl('/form');
   }
+  checkUserAuthentication() {
+    return new Promise((resolve, reject) => {
+      this.auth.hasUser().subscribe(user => {
+        if (user) {
+          resolve(true);
+        } else {
+          this.router.navigate(['/login']);
+          resolve(false);
+        }
+      });
+    });
+  }
+  getuserEmail() {
+    return new Promise((resolve, reject) => {
+      this.auth.hasUser().subscribe(user => {
+        if (user) {
+          resolve(user.email);
+        } else {
+          resolve("");
+        }
+      });
+    });
+  }
+
+
   logout() {
-    // alert(this.auth.hasUser());
-    // console.log(this.displayNamee);
     this.auth
       .logout()
       .then((res) => {
         alert('Logged out successfully');
+        this.router.navigate(['/login']);
+        this.mail = "";
+
       })
       .catch((err) => console.log(err));
+
+
+
   }
+
 
   goToTemplateCV() {
     this.router.navigate(['template'], { relativeTo: this.activatedRoute });
