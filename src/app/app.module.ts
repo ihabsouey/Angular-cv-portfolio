@@ -23,7 +23,16 @@ import { OneCompetenceComponent } from './one-competence/one-competence.componen
 import { LangueFormComponent } from './langue-form/langue-form.component';
 import { LoisirFormComponent } from './loisir-form/loisir-form.component';
 import { OneLoisirComponent } from './one-loisir/one-loisir.component';
+import { environment } from '../environments/environment';
 
+
+//firebase
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
 
@@ -45,6 +54,8 @@ import { OneLoisirComponent } from './one-loisir/one-loisir.component';
     LangueFormComponent,
     LoisirFormComponent,
     OneLoisirComponent,
+    RegisterComponent,
+    LoginComponent,
  
   
   ],
@@ -57,9 +68,13 @@ import { OneLoisirComponent } from './one-loisir/one-loisir.component';
     MatFormFieldModule,
     MatChipsModule,
     MatInputModule,
-    MatIconModule 
+    MatIconModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    
   ],
   providers: [
+    
     {
       provide: MAT_CHIPS_DEFAULT_OPTIONS,
       useValue: {

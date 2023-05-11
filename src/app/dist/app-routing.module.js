@@ -1,0 +1,44 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+exports.__esModule = true;
+exports.AppRoutingModule = void 0;
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var form_component_1 = require("./form/form.component");
+var cv_model_component_1 = require("./cv-model/cv-model.component");
+var experience_pro_component_1 = require("./experience-pro/experience-pro.component");
+var educatin_form_component_1 = require("./educatin-form/educatin-form.component");
+var competence_form_component_1 = require("./competence-form/competence-form.component");
+var langue_form_component_1 = require("./langue-form/langue-form.component");
+var loisir_form_component_1 = require("./loisir-form/loisir-form.component");
+var auth_guard_1 = require("./auth.guard");
+var register_component_1 = require("./register/register.component");
+var login_component_1 = require("./login/login.component");
+var routes = [
+    { path: 'form', component: form_component_1.FormComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'register', component: register_component_1.RegisterComponent },
+    { path: 'login', component: login_component_1.LoginComponent },
+    { path: 'cv', component: cv_model_component_1.CvModelComponent },
+    { path: 'ep', component: experience_pro_component_1.ExperienceProComponent },
+    { path: 'ef', component: educatin_form_component_1.EducatinFormComponent },
+    { path: 'c', component: competence_form_component_1.CompetenceFormComponent },
+    { path: 'lang', component: langue_form_component_1.LangueFormComponent },
+    { path: 'l', component: loisir_form_component_1.LoisirFormComponent },
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [router_1.RouterModule.forRoot(routes)],
+            exports: [router_1.RouterModule]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+exports.AppRoutingModule = AppRoutingModule;
