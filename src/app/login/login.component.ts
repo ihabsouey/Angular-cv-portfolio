@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+
 
   email: string = '';
   password: string = '';
@@ -33,5 +34,6 @@ export class LoginComponent {
     }
 
   }
+
 
 }
