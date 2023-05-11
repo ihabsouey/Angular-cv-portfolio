@@ -16,4 +16,8 @@ export class HeaderComponent {
 
     this.router.navigateByUrl('/form');
   }
+  contacter() {
+    this.ok = !this.ok;
+    this.router.navigateByUrl('/contact');
+  }
 }
