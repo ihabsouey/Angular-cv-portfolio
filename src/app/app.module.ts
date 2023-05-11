@@ -41,6 +41,7 @@ import { CommonModule } from '@angular/common';
 import { FirstCvModelComponent } from './first-cv-model/first-cv-model.component';
 import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -70,6 +71,7 @@ import { HomeComponent } from './home/home.component';
     FirstCvModelComponent,
     TemplatesCVComponent,
     HomeComponent,
+    FooterComponent,
     
 
   ],

@@ -9,10 +9,12 @@ import { AuthService } from '../auth.service';
 })
 export class HomeComponent {
   constructor(private router: Router, private auth: AuthService) {}
+  activatedRoute!: ActivatedRoute;
+
   ok: boolean = true;
   verifiee() {
     this.ok = !this.ok;
 
-    this.router.navigateByUrl('/form');
+    this.router.navigate(['form'], { relativeTo: this.activatedRoute });
   }
 }
