@@ -1,0 +1,86 @@
+.containerr{
+    background-image : URL("https://img.freepik.com/photos-gratuite/espace-travail-table-travail-bureau_144627-40147.jpg?w=1380&t=st=1683814939~exp=1683815539~hmac=0c7afeead04e06224b06b89ab4e999be5ccbedffd3f41ff5c79f6a917a86e741");
+    
+    background-size: cover;
+    min-height: 170vh;
+    height: auto;
+    /* align-items:center; */
+}
+.Welcoming{
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+
+}
+
+.WelTitle{
+
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+    margin-left: 180px; 
+}
+.WelText{
+    margin-top: 20px;
+    max-width: 700px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(54, 54, 54);
+    margin-left: 100px;
+    text-align:center;
+}
+.btnCommncer{
+    color: rgb(241, 236, 236);
+    background-color: rgb(17, 16, 16);
+    font-size:1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-top: 2000px;
+    margin-left: 355px; 
+    padding: 12px 50px;
+    border: 3px solid rgb(255, 255, 255);
+    text-decoration: none;
+
+}
+.TemplatesDiv{
+    margin-top: 220px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+     align-items: center; 
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+.imgTemplates{
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+.btn{
+    margin-top: 30px;
+    align-items: end;
+    align-self: flex-end;
+    
+
+}
+.btnCommncer2{
+    color: rgb(6, 6, 6);
+    font-size:1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+  
+    
+
+
+
+
+}

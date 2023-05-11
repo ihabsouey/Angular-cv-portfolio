@@ -1,0 +1,80 @@
+<div class="Container">
+  <div class="contact">
+    <h3 class="h33">𝓒𝓸𝓷𝓽𝓪𝓬𝓽𝓮𝔃-𝓷𝓸𝓾𝓼</h3>
+    <div class="contact-content">
+      <div class="contact-left">
+        <p>
+          <span class="spanCon">𝓐𝓓𝓓𝓡𝓔𝓢𝓢𝓔 </span>
+          <br />
+          08 Rue Newton, Ariana <br />
+          2088 Tunisie
+        </p>
+        <br />
+
+        <p>
+          <span class="spanCon">𝓷𝓾𝓶é𝓻𝓸 𝓭𝓮 𝓽é𝓵é𝓹𝓱𝓸𝓷𝓮 </span>
+          <br />
+          +216 123 456 789
+        </p>
+        <br />
+
+        <p>
+          <span class="spanCon">𝓔𝓶𝓪𝓲𝓵 </span>
+          <br />
+          Memo.Contactini@gmail.com
+        </p>
+      </div>
+
+      <div class="contact-right">
+        <form
+          [formGroup]="ContactForm"
+          [action]="'https://formsubmit.co/Memo.Contactini@gmail.com'"
+          method="POST"
+          class="contact-form"
+        >
+          <input
+            [formControl]="ContactForm.controls.nom"
+            type="text"
+            name="name"
+            required
+            class="contact-form-text"
+            placeholder="Votre nom"
+          />
+          <input
+            [formControl]="ContactForm.controls.email"
+            type="email"
+            name="email"
+            required
+            class="contact-form-text"
+            placeholder="votre email"
+          />
+          <input
+            [formControl]="ContactForm.controls.numero"
+            type="text"
+            name="phone"
+            required
+            class="contact-form-text"
+            placeholder="Votre numéro de téléphone"
+          />
+          <textarea
+            [formControl]="ContactForm.controls.message"
+            rows="5"
+            style="min-height: 7rem"
+            class="contact-form-text"
+            name="msg"
+            required
+            placeholder="Votre message"
+          ></textarea>
+          <Button
+            type="submit"
+            class="contact-form-btn"
+            value="Send"
+            (click)="submitBook()"
+          >
+            𝐸𝓃𝓋𝑜𝓎𝑒𝓇
+          </Button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

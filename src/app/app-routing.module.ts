@@ -14,8 +14,11 @@ import { LoisirFormComponent } from './loisir-form/loisir-form.component';
 import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
+
   //{path: 'form', component: FormComponent ,canActivate:[AuthGuard]},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
@@ -29,10 +32,11 @@ const routes: Routes = [
   {path: 'l', component: LoisirFormComponent},
   {path: 'template', component : TemplatesCVComponent},
   {path: 'first', component : FirstCvModelComponent}
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

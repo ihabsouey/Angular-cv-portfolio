@@ -14,20 +14,48 @@ export class LandingPageComponent {
   activatedRoute!: ActivatedRoute;
 
   constructor(private router: Router, private auth: AuthService) {}
-  displayNamee = this.auth.displayName;
+  mail: any;
+  ngOnInit(): void {
+    this.getuserEmail().then((result) => {
+      this.mail = result;
+    });
+  }
 
   verifie() {
     this.ok = !this.ok;
-
     this.router.navigateByUrl('/form');
   }
+  checkUserAuthentication() {
+    return new Promise((resolve, reject) => {
+      this.auth.hasUser().subscribe((user) => {
+        if (user) {
+          resolve(true);
+        } else {
+          this.router.navigate(['/login']);
+          resolve(false);
+        }
+      });
+    });
+  }
+  getuserEmail() {
+    return new Promise((resolve, reject) => {
+      this.auth.hasUser().subscribe((user) => {
+        if (user) {
+          resolve(user.email);
+        } else {
+          resolve('');
+        }
+      });
+    });
+  }
+
   logout() {
-    // alert(this.auth.hasUser());
-    // console.log(this.displayNamee);
     this.auth
       .logout()
       .then((res) => {
         alert('Logged out successfully');
+        this.router.navigate(['/login']);
+        this.mail = '';
       })
       .catch((err) => console.log(err));
   }
@@ -36,3 +64,4 @@ export class LandingPageComponent {
     this.router.navigate(['template'], { relativeTo: this.activatedRoute });
   }
 }
+

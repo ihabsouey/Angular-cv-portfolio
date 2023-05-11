@@ -28,7 +28,7 @@
                             <label for="prenom">Prenom<span class=" text-danger">*</span></label>
                             <input type="text" class="form-control" id="prenom" name="lname"
                             #lname="ngModel" required ngModel [(ngModel)]="prenom"> 
-                            <p *ngIf="lname.invalid && lname.dirty" class="alert alert-danger">This field is required</p>      
+                            <p *ngIf="lname?.invalid && lname?.dirty" class="alert alert-danger">This field is required</p>      
                         </div>
     
                     </div>
