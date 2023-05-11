@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { jsPDF } from "jspdf";
 
 @Component({
   selector: 'app-landing-page',
@@ -14,20 +13,12 @@ export class LandingPageComponent {
   ok: boolean = true;
   activatedRoute!: ActivatedRoute;
 
-  constructor(private router: Router, private auth: AuthService) { }
-  // get the email of the user from the auth service
+  constructor(private router: Router, private auth: AuthService) {}
   mail: any;
   ngOnInit(): void {
-    this.getuserEmail()
-      .then(result => {
-        this.mail = result;
-      }
-      )
-    const doc = new jsPDF();
-
-    doc.text("Hello world!", 10, 10);
-    // doc.save("a4.pdf");
-
+    this.getuserEmail().then((result) => {
+      this.mail = result;
+    });
   }
 
   verifie() {
@@ -36,7 +27,7 @@ export class LandingPageComponent {
   }
   checkUserAuthentication() {
     return new Promise((resolve, reject) => {
-      this.auth.hasUser().subscribe(user => {
+      this.auth.hasUser().subscribe((user) => {
         if (user) {
           resolve(true);
         } else {
@@ -48,16 +39,15 @@ export class LandingPageComponent {
   }
   getuserEmail() {
     return new Promise((resolve, reject) => {
-      this.auth.hasUser().subscribe(user => {
+      this.auth.hasUser().subscribe((user) => {
         if (user) {
           resolve(user.email);
         } else {
-          resolve("");
+          resolve('');
         }
       });
     });
   }
-
 
   logout() {
     this.auth
@@ -65,17 +55,13 @@ export class LandingPageComponent {
       .then((res) => {
         alert('Logged out successfully');
         this.router.navigate(['/login']);
-        this.mail = "";
-
+        this.mail = '';
       })
       .catch((err) => console.log(err));
-
-
-
   }
-
 
   goToTemplateCV() {
     this.router.navigate(['template'], { relativeTo: this.activatedRoute });
   }
 }
+

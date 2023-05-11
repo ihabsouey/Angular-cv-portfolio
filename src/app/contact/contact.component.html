@@ -27,11 +27,13 @@
 
       <div class="contact-right">
         <form
-          action="https://formsubmit.co/Memo.Contactini@gmail.com"
+          [formGroup]="ContactForm"
+          [action]="'https://formsubmit.co/Memo.Contactini@gmail.com'"
           method="POST"
           class="contact-form"
         >
           <input
+            [formControl]="ContactForm.controls.nom"
             type="text"
             name="name"
             required
@@ -39,6 +41,7 @@
             placeholder="Votre nom"
           />
           <input
+            [formControl]="ContactForm.controls.email"
             type="email"
             name="email"
             required
@@ -46,6 +49,7 @@
             placeholder="votre email"
           />
           <input
+            [formControl]="ContactForm.controls.numero"
             type="text"
             name="phone"
             required
@@ -53,6 +57,7 @@
             placeholder="Votre numéro de téléphone"
           />
           <textarea
+            [formControl]="ContactForm.controls.message"
             rows="5"
             style="min-height: 7rem"
             class="contact-form-text"
@@ -60,7 +65,12 @@
             required
             placeholder="Votre message"
           ></textarea>
-          <Button type="submit" class="contact-form-btn" value="Send">
+          <Button
+            type="submit"
+            class="contact-form-btn"
+            value="Send"
+            (click)="submitBook()"
+          >
             𝐸𝓃𝓋𝑜𝓎𝑒𝓇
           </Button>
         </form>

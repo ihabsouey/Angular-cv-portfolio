@@ -1,28 +1,53 @@
 <section class="containeer forms">
   <div class="form signup">
     <div class="form-content">
-      <header>S'inscrire</header>
+      <header>𝓢'𝓲𝓷𝓼𝓬𝓻𝓲𝓻𝓮</header>
       <form (ngSubmit)="onSubmit()">
         <div class="field input-field">
-          <input type="email" placeholder="Email" class="input" name="email" [(ngModel)]="email">
+          <input
+            type="email"
+            placeholder="Email"
+            class="input"
+            name="email"
+            [(ngModel)]="email"
+          />
         </div>
         <div class="field input-field">
-          <input type={{typePassword}} placeholder="Mot de passe" class="password" name="password"
-            [(ngModel)]="password" required>
-          <i (click)="showHidePassword()" class='bx bx-hide eye-icon'></i>
-
+          <input
+            type="{{ typePassword }}"
+            placeholder="Mot de passe"
+            class="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+          />
+          <i (click)="showHidePassword()" class="bx bx-hide eye-icon"></i>
         </div>
         <div class="field input-field">
-          <input type={{typePassword}} type="password" placeholder="Mot de passe" class="password"
-            name="confirmPassword" [(ngModel)]="confirmPassword">
-          <i (click)="showHidePassword()" class='bx bx-hide eye-icon'></i>
+          <input
+            type="{{ typePasswordConfirm }}"
+            type="password"
+            placeholder="Mot de passe"
+            class="password"
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
+          />
+          <i
+            (click)="showHidePasswordConfirm()"
+            class="bx bx-hide eye-icon"
+          ></i>
         </div>
         <div class="field button-field">
-          <button type="submit">S'inscrire</button>
+          <button type="submit">𝓢'𝓲𝓷𝓼𝓬𝓻𝓲𝓻𝓮</button>
         </div>
       </form>
       <div class="form-link">
-        <span>Vous avez un compte déja ? <a routerLink="/login" class="link signup-link">Se connecter</a></span>
+        <span
+          >Vous avez un compte déja ?
+          <a routerLink="/login" class="link signup-link"
+            >𝒮𝑒 𝒸𝑜𝓃𝓃𝑒𝒸𝓉𝑒𝓇
+          </a></span
+        >
       </div>
     </div>
   </div>

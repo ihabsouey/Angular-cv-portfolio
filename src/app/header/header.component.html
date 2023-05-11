@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><i>¢νgєη </i></a>
+<nav style="z-index: 99" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><i>Cν gєη </i></a>
   <button
     class="navbar-toggler"
     type="button"
@@ -13,27 +13,24 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="d-flex form-inline">
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Chercher"
-        aria-label="Search"
-      />
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
-        Chercher
-      </button>
-    </form>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a routerLink="contact" (click)="contacter()" class="nav-link" href="#"
-          >Contact</a
+          >Contactez</a
         >
       </li>
-      <li class="nav-item">
-        <a routerLink="form" (click)="verifie()" class="nav-link" href="#"
+      <li *ngIf="!logged" class="nav-item">
+        <a routerLink="login" (click)="verifie()" class="nav-link" href="#"
           >Sign In</a
         >
+      </li>
+      <li *ngIf="logged" class="nav-item">
+        <a routerLink class="nav-link">
+          {{ mail }}
+        </a>
+      </li>
+      <li *ngIf="logged" class="nav-item">
+        <a routerLink (click)="logout()" class="nav-link"> logout </a>
       </li>
     </ul>
   </div>

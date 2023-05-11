@@ -7,33 +7,27 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-
-
   email: string = '';
   password: string = '';
 
-  typePassword: string = "password";
+  typePassword: string = 'password';
   showPassword: boolean = false;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router) {}
   onSubmit() {
-    alert(this.email + " " + this.password + "ss");
-    this.auth.login(this.email, this.password).then(res => {
-      alert("Logged in successfully");
-      this.router.navigate(['/']);
-
-    }
-    ).catch(err => console.log(err));
+    this.auth
+      .login(this.email, this.password)
+      .then((res) => {
+        location.href = '';
+      })
+      .catch((err) => console.log(err));
   }
   showHidePassword() {
     this.showPassword = !this.showPassword;
     if (this.showPassword) {
-      this.typePassword = "text";
+      this.typePassword = 'text';
     } else {
-      this.typePassword = "password";
+      this.typePassword = 'password';
     }
-
   }
-
-
 }
