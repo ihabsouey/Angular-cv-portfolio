@@ -16,9 +16,11 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: 'form', component: FormComponent ,canActivate:[AuthGuard]},
+  //{path: 'form', component: FormComponent ,canActivate:[AuthGuard]},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  
+  {path : '', component : FormComponent},
   {path: 'cv', component: CvModelComponent},
   {path: 'ep', component: ExperienceProComponent},
   {path: 'ef', component: EducatinFormComponent},

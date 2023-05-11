@@ -11,7 +11,7 @@
        <div class="resume_item resume_info">
          <div class="title">
            <p class="bold">{{infosPerso[0].lname | uppercase}} {{infosPerso[0].fname | titlecase}}</p>
-           <!-- <p class="regular">Designer</p> -->
+           <p class="regular">Designer</p>
          </div>
          <ul>
            <li>
@@ -47,109 +47,32 @@
                {{infosPerso[0].linkSM}}
              </div>
            </li>
-         </ul>
+          </ul> 
        </div>
-
+ 
        <!-----------------------------------Skills--------------------------------->
 
        <div class="resume_item resume_skills">
          <div class="title">
            <p class="bold">Compétences</p>
          </div>
-         <ul>
-           <li>
-             <div class="skill_name">
-               HTML
-             </div>
-
-             <div class="skill_progress">
-               <span style="width: 80%;"></span>
-             </div>
-
-             <div class="skill_per">80%</div>
+    <ul>
+           <li *ngFor="let competence of competences">
+            <p class="badge badge-pill badge-ligth"><i class="bi bi-dot text-white"></i>{{competence}}</p>
            </li>
-
-           <li>
-             <div class="skill_name">
-               CSS
-             </div>
-             <div class="skill_progress">
-               <span style="width: 70%;"></span>
-             </div>
-             <div class="skill_per">70%</div>
-           </li>
-           <li>
-             <div class="skill_name">
-               SASS
-             </div>
-             <div class="skill_progress">
-               <span style="width: 90%;"></span>
-             </div>
-             <div class="skill_per">90%</div>
-           </li>
-           <li>
-             <div class="skill_name">
-               JS
-             </div>
-             <div class="skill_progress">
-               <span style="width: 60%;"></span>
-             </div>
-             <div class="skill_per">60%</div>
-           </li>
-           <li>
-             <div class="skill_name">
-               JQUERY
-             </div>
-             <div class="skill_progress">
-               <span style="width: 88%;"></span>
-             </div>
-             <div class="skill_per">88%</div>
-           </li>
-         </ul>
+         </ul>   
        </div>
+
        <!-----------------------------------Social Media--------------------------------->
-       <div class="resume_item resume_social">
+       <div class="resume_item resume_social text-white">
          <div class="title">
-           <p class="bold">Réseaux Sociaux</p>
+           <p class="bold">Langues</p>
          </div>
-         <ul>
-           <li>
-             <div class="icon">
-               <i class="fab fa-facebook-square"></i>
-             </div>
-             <div class="data">
-               <p class="semi-bold">Facebook</p>
-               <p>Stephen@facebook</p>
-             </div>
-           </li>
-           <li>
-             <div class="icon">
-               <i class="fab fa-twitter-square"></i>
-             </div>
-             <div class="data">
-               <p class="semi-bold">Twitter</p>
-               <p>Stephen@twitter</p>
-             </div>
-           </li>
-           <li>
-             <div class="icon">
-               <i class="fab fa-youtube"></i>
-             </div>
-             <div class="data">
-               <p class="semi-bold">Youtube</p>
-               <p>Stephen@youtube</p>
-             </div>
-           </li>
-           <li>
-             <div class="icon">
-               <i class="fab fa-linkedin"></i>
-             </div>
-             <div class="data">
-               <p class="semi-bold">Linkedin</p>
-               <p>Stephen@linkedin</p>
-             </div>
-           </li>
-         </ul>
+         <p><strong>Langue Maternelle : </strong><span>{{langueMaternelle}}</span></p>
+         <p>
+            <strong>Autres : </strong>
+            <span *ngFor="let lang of autresLangues">{{lang}}&nbsp;|</span>
+         </p> 
        </div>
      </div>
   </div>
@@ -169,12 +92,8 @@
            <p class="bold">Experiences professionnelles</p>
          </div>
         <ul>
-            <li>
-                <div class="date">{{infosPerso[0].startDate.year}} - {{infosPerso[0].endDate.year}}</div> 
-                <div class="info">
-                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                </div>
+            <li *ngFor="let experience of experiences">
+              <app-one-experience-cv  [oneExperience]="experience"></app-one-experience-cv>
             </li>
         </ul>
     </div>
@@ -185,35 +104,22 @@
       <div class="title">
            <p class="bold">Educations et Formations</p>
          </div>
-      <ul>
-            <li>
-                <div class="date">2010 - 2013</div> 
-                <div class="info">
-                     <p class="semi-bold">Web Designing (Texas University)</p> 
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                </div>
-            </li>
-            <li>
-              <div class="date">2000 - 2010</div>
-              <div class="info">
-                     <p class="semi-bold">Texas International School</p> 
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                </div>
-            </li>
-        </ul>
+        <ul>
+              <li *ngFor="let education of educations">
+                <app-one-education-cv [oneEducation]="education"></app-one-education-cv>
+              </li>
+  
+          </ul>
     </div>
 
     <!-----------------------------------Loisirs--------------------------------->
 
-    <div class="resume_item resume_hobby">
+    <div class="resume_item">
       <div class="title">
            <p class="bold">Loisirs</p>
          </div>
-       <ul>
-         <li><i class="bi bi-x"></i></li>
-         <li><i class="fas fa-gamepad"></i></li>
-         <li><i class="fas fa-music"></i></li>
-         <li><i class="fab fa-pagelines"></i></li>
+       <ul *ngFor="let loisir of loisirs" >
+         <li><i class="bi bi-dot"></i>{{loisir}}</li>
       </ul>
     </div>
   </div>

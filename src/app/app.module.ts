@@ -12,7 +12,7 @@ import { ExperienceProComponent } from './experience-pro/experience-pro.componen
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { OneExperienceComponent } from './one-experience/one-experience.component';
 import { EducatinFormComponent } from './educatin-form/educatin-form.component';
-import { OneEducationComponent } from './one-education/one-education.component';
+
 import { CompetenceFormComponent } from './competence-form/competence-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MAT_CHIPS_DEFAULT_OPTIONS, MatChipsModule } from '@angular/material/chips';
@@ -40,6 +40,12 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { FirstCvModelComponent } from './first-cv-model/first-cv-model.component';
 import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
+import { TMPComponent } from './tmp/tmp.component';
+import { OneExperienceCvComponent } from './one-experience-cv/one-experience-cv.component';
+import { OneEducationCvComponent } from './one-education-cv/one-education-cv.component';
+import { UnEcucationComponent } from './un-ecucation/un-ecucation.component';
+
+
 
 
 
@@ -54,7 +60,7 @@ import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
     ExperienceProComponent,
     OneExperienceComponent,
     EducatinFormComponent,
-    OneEducationComponent,
+  
     CompetenceFormComponent,
     OneCompetenceComponent,
     LangueFormComponent,
@@ -64,11 +70,13 @@ import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
     RegisterComponent,
     LoginComponent,
  
-  
-
     FirstCvModelComponent,
     TemplatesCVComponent,
-    
+    TMPComponent,
+    OneExperienceCvComponent,
+    OneEducationCvComponent,
+    UnEcucationComponent
+ 
 
   ],
   imports: [
@@ -84,9 +92,8 @@ import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    
-
     CommonModule,
+    FormsModule
 
   ],
   providers: [

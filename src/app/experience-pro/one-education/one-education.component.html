@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-9">
+        <div>
+            <h5>{{oneEducation.formation}}</h5>
+            <h6>{{oneEducation.ecole}}</h6>
+            <h6>{{oneEducation.domaine}}</h6>
+            <p>{{oneEducation.startDate.day}}/{{oneEducation.startDate.month}}/{{oneEducation.startDate.year}} - {{oneEducation.endDate.day}}/{{oneEducation.endDate.month}}/{{oneEducation.endDate.year}} | {{oneEducation.ville}}, {{oneEducation.pays}}</p>
+        </div>
+    </div>
+    <div class="col-3 d-flex justify-content-between align-items-center">
+        <div>
+            <button class="btn" (click)="delete()">
+                <i class="bi bi-trash text-danger">Supprimer</i>
+            </button>
+        </div>
+    </div>
+    <hr *ngIf="oneEducation">
+</div>

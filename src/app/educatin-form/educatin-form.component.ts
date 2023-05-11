@@ -33,7 +33,7 @@ export class EducatinFormComponent {
     this.educationForm = new FormGroup({
       'formation' : new FormControl(),
       'ecole' : new FormControl(),
-      'adresse' : new FormControl(),
+      'domaine' : new FormControl(),
       'codePostal' : new FormControl(),
       'ville' : new FormControl(),
       'pays' : new FormControl(),
