@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { ExperienceService } from '../experience.service';
+
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router'
 import { Location } from '@angular/common'
-import { ProjetService } from '../projet.service';
+import { ExperienceService } from 'src/app/experience.service';
+import { ProjetService } from 'src/app/projet.service';
+
 
 
 @Component({

@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FormComponent } from './form/form.component';
 import { CvModelComponent } from './cv-model/cv-model.component';
-import { ExperienceProComponent } from './experience-pro/experience-pro.component';
+
 import { EducatinFormComponent } from './educatin-form/educatin-form.component';
 import { CompetenceFormComponent } from './competence-form/competence-form.component';
 import { LangueFormComponent } from './langue-form/langue-form.component';
@@ -21,14 +21,15 @@ import { ProjetComponent } from './projet/projet.component';
 
 import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ExperienceProComponent } from './first-cv-model/experience-pro/experience-pro.component';
 
 
 const routes: Routes = [
+  {path : '', component : HomeComponent},
   { path: 'form', component: FormComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   
-  {path : '', component : HomeComponent},
   {path: 'cv', component: CvModelComponent},
   {path: 'ep', component: ExperienceProComponent},
   {path: 'ef', component: EducatinFormComponent},

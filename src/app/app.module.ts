@@ -8,7 +8,7 @@ import { FormComponent } from './form/form.component';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CvModelComponent } from './cv-model/cv-model.component';
-import { ExperienceProComponent } from './experience-pro/experience-pro.component';
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { OneExperienceComponent } from './one-experience/one-experience.component';
 import { EducatinFormComponent } from './educatin-form/educatin-form.component';
@@ -59,6 +59,7 @@ import { OneProjetComponent } from './one-projet/one-projet.component';
 import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
 import { ThirdCvModelComponent } from './third-cv-model/third-cv-model.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ExperienceProComponent } from './first-cv-model/experience-pro/experience-pro.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +79,6 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 
     RegisterComponent,
     LoginComponent,
-
     FirstCvModelComponent,
     TemplatesCVComponent,
     TMPComponent,
@@ -88,9 +88,6 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 
     ProjetComponent,
     OneProjetComponent,
-    
-
-
     HomeComponent,
     FooterComponent,
     ContactComponent,
@@ -108,14 +105,12 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     MatChipsModule,
     MatInputModule,
     MatIconModule,
-
+   
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-
+    
     CommonModule,
     FormsModule,
-
-
     HttpClientModule,
   ],
   providers: [
