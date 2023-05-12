@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-<div class="container">
-  <div class="profile">
-=======
+
 <button class="btnDownload fs-6" (click)="downloadCV()">
   Export to PDF
   <i class="bx bxs-file-pdf fs-5"></i>
 </button>
-<div class="container">
-  <div class="profile" #template>
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+<div class="container" #template>
+  <div class="profile" >
     <div class="profile-photo">
       <img [src]="urlLink" />
     </div>
@@ -158,13 +154,8 @@
         <h2 class="heading heading_dark heading_skills">Compétences</h2>
         <ul class="skills-list">
           <li *ngFor="let competence of competences" class="skills-list__item">
-<<<<<<< HEAD
-            <p class="badge badge-pill badge-ligth">
-              <i class="bi bi-dot text-white"></i>{{ competence }}
-            </p>
-=======
+
             <p class=" "><i class="bi bi-dot"></i>{{ competence }}</p>
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
             <div class="level level-80"></div>
           </li>
         </ul>

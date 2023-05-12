@@ -3,6 +3,7 @@ import { ExperienceService } from '../experience.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router'
 import { Location } from '@angular/common'
+import { ProjetService } from '../projet.service';
 
 
 @Component({
@@ -18,10 +19,15 @@ export class ExperienceProComponent {
 
   experienceForm! : FormGroup
 
+  poste = ""
+  employer = ""
+  presentation = ""
+
   constructor(
     private experience : ExperienceService,
     private router : Router,
-    private location : Location
+    private location : Location,
+    private projet : ProjetService
     ){}
 
 
@@ -50,10 +56,22 @@ export class ExperienceProComponent {
       }),
       'presentation' : new FormControl()
     }) 
+
+   this.poste = this.projet.tmp.poste
+   this.employer = this.projet.tmp.employeur
+   this.presentation = this.projet.tmp.presentation
   }
 
   onSubmit(){
-    this.experience.addExperience(this.experienceForm.value)
+    if(Object.keys(this.projet.tmp).length != 0){
+      const index = this.experience.experiences.indexOf(this.projet.tmp)
+      this.experience.experiences[index] = this.experienceForm.value
+      this.projet.tmp = {}
+    }else{
+      this.experience.addExperience(this.experienceForm.value)
+
+    }
+
     sessionStorage.setItem('cacheFromExperience', "false")
     this.location.back()
   }
@@ -66,4 +84,6 @@ export class ExperienceProComponent {
     this.experienceForm.get('endDate')?.enable()
   }
 }
+
+
 

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-=======
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import html2canvas from 'html2canvas';
 import { UserDataService } from '../user-data.service';
@@ -13,17 +10,10 @@ import { LanguesService } from '../langues.service';
 import { LoisirService } from '../loisir.service';
 import { ThemePalette } from '@angular/material/core';
 import { jsPDF } from 'jspdf';
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 
 @Component({
   selector: 'app-third-cv-model',
   templateUrl: './third-cv-model.component.html',
-<<<<<<< HEAD
-  styleUrls: ['./third-cv-model.component.css']
-})
-export class ThirdCvModelComponent {
-
-=======
   styleUrls: ['./third-cv-model.component.css'],
 })
 export class ThirdCvModelComponent {
@@ -88,5 +78,4 @@ export class ThirdCvModelComponent {
       pdf.save('cv.pdf');
     });
   }
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 }

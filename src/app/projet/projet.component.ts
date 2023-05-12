@@ -60,7 +60,7 @@ export class ProjetComponent {
    }
 
    onSubmit(){
-    console.log(Object.keys(this.projet.tmp).length != 0)
+    //console.log(Object.keys(this.projet.tmp).length != 0)
     if(Object.keys(this.projet.tmp).length != 0){
       const index = this.projet.projets.indexOf(this.projet.tmp)
       this.projet.projets[index] = this.projetForm.value
