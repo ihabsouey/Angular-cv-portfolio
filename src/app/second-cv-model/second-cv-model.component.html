@@ -1,0 +1,168 @@
+<div class="container">
+  <div class="profile">
+    <div class="profile-photo">
+      <img [src]="urlLink" />
+    </div>
+    <div class="profile-info">
+      <h2 class="heading heading-light">Présentation</h2>
+      <p class="profile-text">
+        {{ infosPerso[0].presentation }}
+      </p>
+      <div class="contacts">
+        <div class="contacts-item">
+          <h3 class="contacts-title">
+            <i class="fas fa-phone-volume"></i>
+            Phone
+          </h3>
+          <a href="tel" class="contacts-text">{{ infosPerso[0].tel }}</a>
+        </div>
+        <div class="contacts-item">
+          <h3 class="contacts-title">
+            <i class="fas fa-envelope"></i>
+            Email
+          </h3>
+          <a href="mailto:Robertsmith@gamil.com" class="contacts-text">{{
+            infosPerso[0].email
+          }}</a>
+        </div>
+        <div class="contacts-item">
+          <h3 class="contacts-title">
+            <i class="fas fa-globe-americas">social Media</i>
+          </h3>
+          <div class="icon" [ngSwitch]="sm">
+            <i class="bi bi-linkedin" *ngSwitchCase="'bi bi-linkedin'"></i>
+            <i class="bi bi-github" *ngSwitchCase="'bi bi-github'"></i>
+          </div>
+          <div class="data">
+            {{ infosPerso[0].linkSM }}
+          </div>
+        </div>
+        <div class="contacts-item">
+          <h3 class="contacts-title">
+            <i class="fas fa-map-marker-alt"></i>
+            Home
+          </h3>
+          <address class="contacts-text">
+            {{ infosPerso[0].adresse }}, {{ infosPerso[0].ville }} <br />{{
+              infosPerso[0].pays
+            }}
+          </address>
+        </div>
+      </div>
+      <!-----------------------------------Langue-------------------------------->
+
+      <h2 class="heading heading-light">Langues</h2>
+      <div class="languages">
+        <p>
+          <strong>Langue Maternelle : </strong
+          ><span>{{ langueMaternelle }}</span>
+        </p>
+        <p>
+          <strong>Autres : </strong>
+          <span *ngFor="let lang of autresLangues">{{ lang }}&nbsp;|</span>
+        </p>
+        <div class="lines">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resume">
+    <div class="resume-wrap">
+      <div class="logo">
+        <div class="logo-lines logo-lines_left">
+          <span class="logo-line"></span>
+          <span class="logo-line"></span>
+          <span class="logo-line"></span>
+        </div>
+        <div class="logo-img">{{ infosPerso[0].lname }}</div>
+        <div class="logo-lines logo-lines_right">
+          <span class="logo-line"></span>
+          <span class="logo-line"></span>
+          <span class="logo-line"></span>
+        </div>
+      </div>
+      <div class="about">
+        <h1 class="name">
+          {{ infosPerso[0].lname | uppercase }}
+          {{ infosPerso[0].fname | titlecase }}
+        </h1>
+        <span class="position">Designer</span>
+        <address class="about-address">
+          {{ infosPerso[0].adresse }}, {{ infosPerso[0].ville }} ,{{
+            infosPerso[0].pays
+          }}
+        </address>
+        <div class="about-contacts">
+          <a class="about-contacts__link" href="#">
+            <b>t</b>:{{ infosPerso[0].tel }}</a
+          >
+          |
+          <a class="about-contacts__link" href="#">
+            <b>e</b>: {{ infosPerso[0].email }}
+          </a>
+          |
+          <!-- <a class="about-contacts__link" href="#">
+            <b>w</b>: www.robertsmith.com</a
+          > -->
+        </div>
+      </div>
+      <!-----------------------------------Expériences professionnelles--------------------------------->
+
+      <div class="experience">
+        <h2 class="heading heading_dark">Experiences professionnelles</h2>
+        <ul class="list">
+          <li *ngFor="let experience of experiences" class="list-item">
+            <app-one-experience-cv
+              [oneExperience]="experience"
+            ></app-one-experience-cv>
+          </li>
+        </ul>
+      </div>
+      <!-----------------------------------Eductions et Formation--------------------------------->
+
+      <div class="education">
+        <h2 class="heading heading_dark">Educations et Formations</h2>
+        <ul class="list">
+          <li
+            *ngFor="let education of educations"
+            class="list-item list-item_non-border"
+          >
+            <app-one-education-cv
+              [oneEducation]="education"
+            ></app-one-education-cv>
+          </li>
+        </ul>
+      </div>
+      <!-----------------------------------Compétences--------------------------------->
+
+      <div class="skills">
+        <h2 class="heading heading_dark heading_skills">Compétences</h2>
+        <ul class="skills-list">
+          <li *ngFor="let competence of competences" class="skills-list__item">
+            <p class="badge badge-pill badge-ligth">
+              <i class="bi bi-dot text-white"></i>{{ competence }}
+            </p>
+            <div class="level level-80"></div>
+          </li>
+        </ul>
+      </div>
+      <!-----------------------------------Loisir--------------------------------->
+
+      <div class="skills">
+        <h2 class="heading heading_dark heading_skills">Loisirs</h2>
+        <ul class="skills-list">
+          <li *ngFor="let loisir of loisirs" class="skills-list__item">
+            <p class="badge badge-pill badge-ligth">
+              <i class="bi bi-dot text-white"></i>{{ loisir }}
+            </p>
+            <div class="level level-80"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

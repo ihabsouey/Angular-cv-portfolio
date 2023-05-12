@@ -46,15 +46,11 @@ import { OneExperienceCvComponent } from './one-experience-cv/one-experience-cv.
 import { OneEducationCvComponent } from './one-education-cv/one-education-cv.component';
 import { UnEcucationComponent } from './un-ecucation/un-ecucation.component';
 
-
-
-
-
-
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     ExperienceProComponent,
     OneExperienceComponent,
     EducatinFormComponent,
-  
+
     CompetenceFormComponent,
     OneCompetenceComponent,
     LangueFormComponent,
@@ -75,22 +71,17 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     LoginComponent,
 
- 
     FirstCvModelComponent,
     TemplatesCVComponent,
     TMPComponent,
     OneExperienceCvComponent,
     OneEducationCvComponent,
-    UnEcucationComponent
- 
+    UnEcucationComponent,
 
-
-
-    
     HomeComponent,
     FooterComponent,
     ContactComponent,
-
+    SecondCvModelComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,11 +98,9 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule,
 
     CommonModule,
-    FormsModule
-
+    FormsModule,
 
     HttpClientModule,
-
   ],
   providers: [
     {

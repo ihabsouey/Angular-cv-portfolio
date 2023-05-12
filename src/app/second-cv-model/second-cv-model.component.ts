@@ -10,11 +10,11 @@ import { LoisirService } from '../loisir.service';
 import { ThemePalette } from '@angular/material/core';
 
 @Component({
-  selector: 'app-first-cv-model',
-  templateUrl: './first-cv-model.component.html',
-  styleUrls: ['./first-cv-model.component.css'],
+  selector: 'app-second-cv-model',
+  templateUrl: './second-cv-model.component.html',
+  styleUrls: ['./second-cv-model.component.css'],
 })
-export class FirstCvModelComponent {
+export class SecondCvModelComponent {
   urlLink: any = '';
   infosPerso: any[] = [];
   experiences: any[] = [];

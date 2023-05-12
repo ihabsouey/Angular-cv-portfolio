@@ -1,125 +1,137 @@
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
 <div class="resume d-flex">
-
-   <div class="resume_left">
+  <div class="resume_left">
     <!-----------------------------------Informaion personnelle--------------------------------->
-     <div class="resume_profile">
-       <img [src]="urlLink" alt="profile_pic">
-     </div>
-     <div class="resume_content">
-       <div class="resume_item resume_info">
-         <div class="title">
-           <p class="bold">{{infosPerso[0].lname | uppercase}} {{infosPerso[0].fname | titlecase}}</p>
-           <p class="regular">Designer</p>
-         </div>
-         <ul>
-           <li>
-             <div class="icon">
-               <i class="bi bi-house-door-fill"></i>
-             </div>
-             <div class="data">
-               {{infosPerso[0].adresse}}, {{infosPerso[0].ville}} <br /> {{infosPerso[0].pays}}
-             </div>
-           </li>
-           <li>
-             <div class="icon">
-               <i class="bi bi-telephone-fill"></i>
-             </div>
-             <div class="data">
-               {{infosPerso[0].codePays}} {{infosPerso[0].tel}}
-             </div>
-           </li>
-           <li>
-             <div class="icon">
-               <i class="bi bi-envelope-fill"></i>
-             </div>
-             <div class="data">
-               {{infosPerso[0].email}}
-             </div>
-           </li>
-           <li>
-             <div class="icon" [ngSwitch]="sm">
-               <i class="bi bi-linkedin" *ngSwitchCase="'bi bi-linkedin'"></i>
-               <i class="bi bi-github" *ngSwitchCase="'bi bi-github'"></i>
-             </div>
-             <div class="data">
-               {{infosPerso[0].linkSM}}
-             </div>
-           </li>
-          </ul> 
-       </div>
- 
-       <!-----------------------------------Skills--------------------------------->
+    <div class="resume_profile">
+      <img [src]="urlLink" alt="profile_pic" />
+    </div>
+    <div class="resume_content">
+      <div class="resume_item resume_info">
+        <div class="title">
+          <p class="bold">
+            {{ infosPerso[0].lname | uppercase }}
+            {{ infosPerso[0].fname | titlecase }}
+          </p>
+          <p class="regular">Designer</p>
+        </div>
+        <ul>
+          <li>
+            <div class="icon">
+              <i class="bi bi-house-door-fill"></i>
+            </div>
+            <div class="data">
+              {{ infosPerso[0].adresse }}, {{ infosPerso[0].ville }} <br />
+              {{ infosPerso[0].pays }}
+            </div>
+          </li>
+          <li>
+            <div class="icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div class="data">
+              {{ infosPerso[0].codePays }} {{ infosPerso[0].tel }}
+            </div>
+          </li>
+          <!-----------------------------------Social Media--------------------------------->
+          <li>
+            <div class="icon">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <div class="data">
+              {{ infosPerso[0].email }}
+            </div>
+          </li>
+          <li>
+            <div class="icon" [ngSwitch]="sm">
+              <i class="bi bi-linkedin" *ngSwitchCase="'bi bi-linkedin'"></i>
+              <i class="bi bi-github" *ngSwitchCase="'bi bi-github'"></i>
+            </div>
+            <div class="data">
+              {{ infosPerso[0].linkSM }}
+            </div>
+          </li>
+        </ul>
+      </div>
 
-       <div class="resume_item resume_skills">
-         <div class="title">
-           <p class="bold">Compétences</p>
-         </div>
-    <ul>
-           <li *ngFor="let competence of competences">
-            <p class="badge badge-pill badge-ligth"><i class="bi bi-dot text-white"></i>{{competence}}</p>
-           </li>
-         </ul>   
-       </div>
+      <!-----------------------------------Skills--------------------------------->
 
-       <!-----------------------------------Social Media--------------------------------->
-       <div class="resume_item resume_social text-white">
-         <div class="title">
-           <p class="bold">Langues</p>
-         </div>
-         <p><strong>Langue Maternelle : </strong><span>{{langueMaternelle}}</span></p>
-         <p>
-            <strong>Autres : </strong>
-            <span *ngFor="let lang of autresLangues">{{lang}}&nbsp;|</span>
-         </p> 
-       </div>
-     </div>
+      <div class="resume_item resume_skills">
+        <div class="title">
+          <p class="bold">Compétences</p>
+        </div>
+        <ul>
+          <li *ngFor="let competence of competences">
+            <p class="badge badge-pill badge-ligth">
+              <i class="bi bi-dot text-white"></i>{{ competence }}
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <!-----------------------------------Langue-------------------------------->
+      <div class="resume_item resume_social text-white">
+        <div class="title">
+          <p class="bold">Langues</p>
+        </div>
+        <p>
+          <strong>Langue Maternelle : </strong
+          ><span>{{ langueMaternelle }}</span>
+        </p>
+        <p>
+          <strong>Autres : </strong>
+          <span *ngFor="let lang of autresLangues">{{ lang }}&nbsp;|</span>
+        </p>
+      </div>
+    </div>
   </div>
   <!-----------------------------------Presentation--------------------------------->
   <div class="resume_right">
     <div class="resume_item resume_about">
-        <div class="title">
-           <p class="bold">Présentation</p>
-         </div>
-        <p>{{infosPerso[0].presentation}}</p>
+      <div class="title">
+        <p class="bold">Présentation</p>
+      </div>
+      <p>{{ infosPerso[0].presentation }}</p>
     </div>
 
-   <!-----------------------------------Expériences professionnelles--------------------------------->
+    <!-----------------------------------Expériences professionnelles--------------------------------->
 
     <div class="resume_item resume_work">
-        <div class="title">
-           <p class="bold">Experiences professionnelles</p>
-         </div>
-        <ul>
-            <li *ngFor="let experience of experiences">
-              <app-one-experience-cv  [oneExperience]="experience"></app-one-experience-cv>
-            </li>
-        </ul>
+      <div class="title">
+        <p class="bold">Experiences professionnelles</p>
+      </div>
+      <ul>
+        <li *ngFor="let experience of experiences">
+          <app-one-experience-cv
+            [oneExperience]="experience"
+          ></app-one-experience-cv>
+        </li>
+      </ul>
     </div>
 
     <!-----------------------------------Eductions et Formation--------------------------------->
 
     <div class="resume_item resume_education">
       <div class="title">
-           <p class="bold">Educations et Formations</p>
-         </div>
-        <ul>
-              <li *ngFor="let education of educations">
-                <app-one-education-cv [oneEducation]="education"></app-one-education-cv>
-              </li>
-  
-          </ul>
+        <p class="bold">Educations et Formations</p>
+      </div>
+      <ul>
+        <li *ngFor="let education of educations">
+          <app-one-education-cv
+            [oneEducation]="education"
+          ></app-one-education-cv>
+        </li>
+      </ul>
     </div>
 
     <!-----------------------------------Loisirs--------------------------------->
 
     <div class="resume_item">
       <div class="title">
-           <p class="bold">Loisirs</p>
-         </div>
-       <ul *ngFor="let loisir of loisirs" >
-         <li><i class="bi bi-dot"></i>{{loisir}}</li>
+        <p class="bold">Loisirs</p>
+      </div>
+      <ul *ngFor="let loisir of loisirs">
+        <li><i class="bi bi-dot"></i>{{ loisir }}</li>
       </ul>
     </div>
   </div>
