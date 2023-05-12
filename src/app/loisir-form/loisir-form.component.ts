@@ -6,52 +6,51 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-loisir-form',
   templateUrl: './loisir-form.component.html',
-  styleUrls: ['./loisir-form.component.css']
+  styleUrls: ['./loisir-form.component.css'],
 })
 export class LoisirFormComponent {
-  loisirs : any[] = []
- 
+  loisirs: any[] = [];
 
-  form! : FormGroup
+  form!: FormGroup;
 
-  selectedLoisirs : string[] = []
+  selectedLoisirs: string[] = [];
 
   constructor(
-    private fb : FormBuilder,
-    private location : Location,
-    private loisir : LoisirService
-  ){}
+    private fb: FormBuilder,
+    private location: Location,
+    private loisir: LoisirService
+  ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.form = this.fb.group({
-      'titre' : ['', Validators.required]
-    })
-
-    
+      titre: ['', Validators.required],
+    });
   }
 
-  onSubmit(){
-    this.loisir.add(this.selectedLoisirs)   
+  onSubmit() {
+    this.loisir.add(this.selectedLoisirs);
 
-      sessionStorage.setItem('cacheFromLoisir', "false")
-      this.location.back()
-    }
-    
-  addLoisir(){
-    const loisir = this.form.value.titre 
-    if(loisir && !this.selectedLoisirs.includes(loisir))
-      this.selectedLoisirs.push(loisir.trim())
-
-    this.form.get('titre')?.reset()
+    sessionStorage.setItem('cacheFromLoisir', 'false');
+    this.location.back();
   }
 
-  deleteLoisir(loisir: any){
-     const index = this.selectedLoisirs.indexOf(loisir)
-     if (index >= 0) {
+  addLoisir() {
+    const loisir = this.form.value.titre;
+    loisir.split(';').forEach((element: any) => {
+      if (
+        element.trim() != '' &&
+        !this.selectedLoisirs.includes(element.trim())
+      )
+        this.selectedLoisirs.push(element.trim());
+    });
+
+    this.form.get('titre')?.reset();
+  }
+
+  deleteLoisir(loisir: any) {
+    const index = this.selectedLoisirs.indexOf(loisir);
+    if (index >= 0) {
       this.selectedLoisirs.splice(index, 1);
     }
   }
 }
-
-
-

@@ -30,28 +30,25 @@ export class ContactComponent {
       'Content-Type': 'application/json',
     }),
   };
-  submitBook() {
-    console.log(JSON.stringify(this.ContactForm.value));
-    alert('Merci pour ton message ' + this.ContactForm.value?.nom);
-    /*this.http
-      .post(
-        'https://formsubmit.co/Memo.Contactini@gmail.com',
-        JSON.stringify({
-          nom: 'dza',
-          email: 'dza',
-          numero: 'dza',
-          message: 'dzzad',
-        }),
-      )
-      .subscribe(
-        (response) => {
-          location.href = 'https://www.javascripttutorial.net/';
+  postMessage(input: any) {
+    return this.http.post(
+      'https://mailthis.to/memo.contactini@gmail.com',
+      input,
+      {
+        responseType: 'text',
+      }
+    );
+  }
 
-          console.log(response);
-        },
-        (error) => {
-          console.log(error.json());
-        }
-      );*/
+  submitBook() {
+    this.postMessage(this.ContactForm.value).subscribe(
+      (response) => {
+        location.href = 'http://mailthis.to/confirm';
+        console.log(response);
+      },
+      (error) => {
+        console.log({ error });
+      }
+    );
   }
 }

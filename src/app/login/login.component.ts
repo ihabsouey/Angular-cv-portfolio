@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import Swal from 'sweetalert2';
+
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -20,7 +22,12 @@ export class LoginComponent {
       .then((res) => {
         location.href = '';
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        Swal.fire({
+          title: 'Error !',
+          text: 'Email ou mot de passe incorrect',
+        });
+      });
   }
   showHidePassword() {
     this.showPassword = !this.showPassword;

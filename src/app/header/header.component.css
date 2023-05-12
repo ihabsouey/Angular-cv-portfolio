@@ -24,3 +24,9 @@ form > button {
 .navbar{
     z-index: 9999999999 !important;
 }
+nav{
+        position: fixed;
+        min-width: 100vw;
+        font-size: 20px;
+        font-weight: bold;
+}

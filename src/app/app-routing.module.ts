@@ -16,13 +16,18 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+<<<<<<< HEAD
 import { ProjetComponent } from './projet/projet.component';
+=======
+import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 
 const routes: Routes = [
-
-  //{path: 'form', component: FormComponent ,canActivate:[AuthGuard]},
+  { path: 'form', component: FormComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+<<<<<<< HEAD
   
   {path : 'form', component : FormComponent},
   {path : '', component : HomeComponent},
@@ -35,7 +40,21 @@ const routes: Routes = [
   {path: 'template', component : TemplatesCVComponent},
   {path: 'first', component : FirstCvModelComponent},
   {path: 'projet', component : ProjetComponent}
+=======
+  { path: 'contact', component: ContactComponent },
+  { path: 'portfolio', component: PortfolioComponent },
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 
+  { path: '', component: HomeComponent },
+  { path: 'cv', component: CvModelComponent },
+  { path: 'ep', component: ExperienceProComponent },
+  { path: 'ef', component: EducatinFormComponent },
+  { path: 'c', component: CompetenceFormComponent },
+  { path: 'lang', component: LangueFormComponent },
+  { path: 'l', component: LoisirFormComponent },
+  { path: 'template', component: TemplatesCVComponent },
+  { path: 'template2', component: SecondCvModelComponent },
+  { path: 'first', component: FirstCvModelComponent },
 ];
 
 @NgModule({

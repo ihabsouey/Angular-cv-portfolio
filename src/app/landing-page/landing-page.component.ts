@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-landing-page',
@@ -50,18 +51,23 @@ export class LandingPageComponent {
   }
 
   logout() {
-    this.auth
-      .logout()
-      .then((res) => {
-        alert('Logged out successfully');
-        this.router.navigate(['/login']);
-        this.mail = '';
-      })
-      .catch((err) => console.log(err));
+    // this.auth
+    //   .logout()
+    //   .then((res) => {
+    //       Swal.fire({
+    //         title: 'Attention !',
+    //         text: 'Logged out successfully',
+    //         confirmButtonColor: '#ffcc00',
+    //         confirmButtonText: 'ok',
+    //       });
+    //     };
+    //     this.router.navigate(['/login']);
+    //     this.mail = '';
+    //   })
+    //   .catch((err) => console.log(err));
   }
 
   goToTemplateCV() {
     this.router.navigate(['template'], { relativeTo: this.activatedRoute });
   }
 }
-

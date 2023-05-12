@@ -26,12 +26,7 @@
       </div>
 
       <div class="contact-right">
-        <form
-          [formGroup]="ContactForm"
-          [action]="'https://formsubmit.co/Memo.Contactini@gmail.com'"
-          method="POST"
-          class="contact-form"
-        >
+        <form [formGroup]="ContactForm" method="POST" class="contact-form">
           <input
             [formControl]="ContactForm.controls.nom"
             type="text"

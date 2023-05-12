@@ -49,11 +49,17 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { OneEducationCvComponent } from './one-education-cv/one-education-cv.component';
 import { ProjetComponent } from './projet/projet.component';
 import { OneProjetComponent } from './one-projet/one-projet.component';
 
 
+=======
+import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
+import { ThirdCvModelComponent } from './third-cv-model/third-cv-model.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +70,7 @@ import { OneProjetComponent } from './one-projet/one-projet.component';
     ExperienceProComponent,
     OneExperienceComponent,
     EducatinFormComponent,
-  
+
     CompetenceFormComponent,
     OneCompetenceComponent,
     LangueFormComponent,
@@ -80,6 +86,7 @@ import { OneProjetComponent } from './one-projet/one-projet.component';
     OneExperienceCvComponent,
     OneEducationCvComponent,
     UnEcucationComponent,
+<<<<<<< HEAD
   
     HomeComponent,
     FooterComponent,
@@ -88,6 +95,15 @@ import { OneProjetComponent } from './one-projet/one-projet.component';
     OneProjetComponent
     
 
+=======
+
+    HomeComponent,
+    FooterComponent,
+    ContactComponent,
+    SecondCvModelComponent,
+    ThirdCvModelComponent,
+    PortfolioComponent,
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
   ],
   imports: [
     BrowserModule,
@@ -105,10 +121,12 @@ import { OneProjetComponent } from './one-projet/one-projet.component';
 
     CommonModule,
     FormsModule,
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 
     HttpClientModule,
-
   ],
   providers: [
     {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row d-flex flex-column justify-content-center align-items-center m-3 box">
 
     <div *ngIf="cache"  class="container col-6 bg-light pt-3 shadow-lg">
@@ -310,11 +311,480 @@
                 <button type="submit" class="btn btn-primary" (click)="goToTemplateCV()"
                 >Next<i class="bi bi-caret-right-fill"></i></button></div>            
              </div>
+=======
+<div
+  class="row d-flex flex-column justify-content-center align-items-center m-3 box"
+>
+  <div *ngIf="cache" class="container col-6 bg-light pt-3 shadow-lg">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="row">
+        <div class="col-4 div-img">
+          <img class="img-thumbnail mt-2" [src]="urlLink" alt="avatar profil" />
+          <p class="m-2">
+            <input
+              class="form-control form-control-sm"
+              type="file"
+              (change)="selectedFiles($event)"
+              #img="ngModel"
+              ngModel
+              required
+              [(ngModel)]="newUrlLink"
+            />
+          </p>
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
         </div>
-    <div class="col-3"></div>    
+        <div class="col-7">
+          <h3>Infomations Personnelles</h3>
+          <hr />
+          <div class="row">
+            <div class="col-6 form-group">
+              <label for="nom">Nom <span class="text-danger">*</span> </label>
+              <input
+                type="text"
+                class="form-control"
+                id="nom"
+                name="fname"
+                #fname="ngModel"
+                required
+                ngModel
+                [(ngModel)]="nom"
+              />
+              <p
+                *ngIf="fname.invalid && fname.dirty"
+                class="alert alert-danger"
+              >
+                This field is required
+              </p>
+            </div>
+
+            <div class="col-6 form-group">
+              <label for="prenom"
+                >Prenom<span class="text-danger">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="prenom"
+                name="lname"
+                #lname="ngModel"
+                required
+                ngModel
+                [(ngModel)]="prenom"
+              />
+              <p
+                *ngIf="lname?.invalid && lname?.dirty"
+                class="alert alert-danger"
+              >
+                This field is required
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-2 mb-3">
+            <label for="textarea"
+              >Je me présente <span class="text-danger">*</span></label
+            >
+            <textarea
+              class="form-control text-secondary"
+              id="textarea"
+              name="presentation"
+              placeholder="Vous pouvez fournir une description de vous même ici..."
+              #presentation="ngModel"
+              ngModel
+              required
+              [(ngModel)]="pres"
+            ></textarea>
+          </div>
+          <p
+            *ngIf="presentation.dirty && presentation.invalid && f.invalid"
+            class="alert alert-danger"
+          >
+            L'image* et les (informations personnelles)* sont obligatoires !
+          </p>
+
+          <h3>Contact</h3>
+          <hr />
+          <div>
+            <label for="email">Adresse Electronique</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="par ex.: dieng.ibrahima@gmail.com"
+              id="email"
+              name="email"
+              #email="ngModel"
+              ngModel
+              email
+            />
+            <p *ngIf="email.invalid && email.dirty" class="alert alert-danger">
+              Veuillez saisir un email valid !
+            </p>
+          </div>
+
+          <div class="mt-2">
+            <label for="pays">Numéro Téléphonique</label>
+            <div class="row">
+              <div class="col-6">
+                <select
+                  class="form-select"
+                  name="pays"
+                  id="codePays"
+                  name="codePays"
+                  #codePays="ngModel"
+                  ngModel
+                >
+                  <option ngValue="0" selected>Selectionnez</option>
+                  <option value="+216">Tunisie +216</option>
+                  <option value="+224">Guinée +216</option>
+                </select>
+                <p
+                  *ngIf="codePays.untouched && tel.dirty"
+                  class="alert alert-danger"
+                >
+                  Veuillez sair le code du pays !
+                </p>
+              </div>
+              <div class="col-6">
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="par ex.: 58-071-373"
+                  id="tel"
+                  name="tel"
+                  pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}"
+                  #tel="ngModel"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-2 mb-3">
+            <label for="socialMedia">Réseaux Sociaux</label>
+            <div class="row">
+              <div class="col-6">
+                <select
+                  name="socialMedia"
+                  id="socialMedia"
+                  class="form-select"
+                  #socialMedia="ngModel"
+                  ngModel
+                >
+                  <option value="">Selectionnez</option>
+                  <option value="in">LinkedIn</option>
+                  <option value="git">GitHub</option>
+                </select>
+                <p
+                  *ngIf="socialMedia.untouched && linkSM.dirty"
+                  class="alert alert-danger"
+                >
+                  Veuillez sair le type de plateforme !
+                </p>
+              </div>
+              <div class="col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="linkSM"
+                  placeholder="enter le lien"
+                  #linkSM="ngModel"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+
+          <h3>Adresse</h3>
+          <hr />
+          <div>
+            <div>
+              <label for="adresse">Ligne d'adresse</label>
+              <input
+                type="text"
+                class="form-control"
+                name="adresse"
+                id="adresse"
+                placeholder="Par ex.: appartement, suite, étage..."
+                #adresse="ngModel"
+                ngModel
+              />
+            </div>
+            <div class="row mt-2 mb-3">
+              <div class="col-4">
+                <label for="codePostal">Code Postal</label>
+                <input
+                  type="text"
+                  id="codePostal"
+                  class="form-control"
+                  name="codePostal"
+                  placeholder="Par ex.: 1010"
+                  #codePostal="ngModel"
+                  ngModel
+                />
+              </div>
+              <div class="col-4">
+                <label for="ville">Localité</label>
+                <input
+                  type="text"
+                  id="ville"
+                  class="form-control"
+                  name="ville"
+                  placeholder="Par ex.: Tunis"
+                  #ville="ngModel"
+                  ngModel
+                />
+              </div>
+              <div class="col-4">
+                <label for="pays">Pays</label>
+                <select
+                  class="form-select"
+                  id="pays"
+                  name="pays"
+                  #pays="ngModel"
+                  ngModel
+                >
+                  <option value="">Selectionnez</option>
+                  <option value="Tunisie">Tunisie</option>
+                  <option value="Guinee">Guinée</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="d-flex justify-content-end mb-3 button">
+            <div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="reset(f)"
+              >
+                Reset
+              </button>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <pre>
+                {{f.value | json }}
+            </pre> -->
+    </form>
+  </div>
+
+  <div *ngIf="!cache">
+    <div
+      class="row d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="col-6 bg-light d-flex justify-content-between m-3 shadow-lg">
+        <div class="col-4 div-img mt-4 mb-3">
+          <img class="img-thumbnail" [src]="newUrlLink" alt="avatar profil" />
+          <p class="m-2">
+            <input
+              class="form-control"
+              type="file"
+              (change)="selectedFiles($event)"
+            />
+          </p>
+        </div>
+        <div class="text-secondary align-self-center">
+          <h3>{{ fname }} {{ lname }}</h3>
+          <hr />
+          <p>{{ presentation }}</p>
+        </div>
+        <div class="col-3 mt-4">
+          <button class="btn w-75" (click)="changeCacheValue()">
+            <i class="bi bi-pen text-primary btnModifier">Modifier</i>
+          </button>
+        </div>
+      </div>
+
+      <!--------------------------Expériences Professionnles--------------------------------->
+
+      <div
+        *ngIf="cacheEpList"
+        class="col-6 text-secondary mb-3 bg-light shadow-sm"
+      >
+        <h4 class="text-black">Experiences Professionnelles</h4>
+        <hr class="text-primary" />
+        <app-one-experience
+          *ngFor="let experience of experiences; let i = index"
+          [oneExperience]="experience"
+          [index]="i"
+        ></app-one-experience>
+        <button class="btn" routerLink="/ep">
+          <i class="bi bi-plus-circle text-primary">
+            Ajouter une nouvelle expérience</i
+          >
+        </button>
+      </div>
+
+      <!-------------------------------------End---------------------------------------------->
+
+      <!--------------------------Educations et Formations------------------------------------>
+
+      <div
+        *ngIf="cacheEdList"
+        class="col-6 text-secondary mb-3 bg-light shadow-sm"
+      >
+        <h4 class="text-black">Educations et Formations</h4>
+        <hr class="text-primary" />
+        <app-un-ecucation
+          *ngFor="let education of educations; let i = index"
+          [oneEducation]="education"
+          [index]="i"
+        ></app-un-ecucation>
+        <button class="btn" routerLink="/ef">
+          <i class="bi bi-plus-circle text-primary">
+            Ajouter une nouvelle éducation ou formation</i
+          >
+        </button>
+      </div>
+
+      <!--------------------------------------End--------------------------------------------->
+
+      <!-------------------------------Compétences--------------------------------------------->
+
+      <div
+        *ngIf="cacheCList"
+        class="col-6 text-secondary mb-3 bg-light shadow-sm"
+      >
+        <h4 class="text-black">Compétences</h4>
+        <hr class="text-primary" />
+        <mat-chip-listbox>
+          <app-one-competence
+            *ngFor="let competence of competences; let i = index"
+            [oneCompetence]="competence"
+            [index]="i"
+          ></app-one-competence>
+        </mat-chip-listbox>
+        <button class="btn" routerLink="/c">
+          <i class="bi bi-plus-circle text-primary">Ajouter une compétence</i>
+        </button>
+      </div>
+
+      <!--------------------------------------End--------------------------------------------->
+
+      <!----------------------------------Langues--------------------------------------------->
+
+      <div
+        *ngIf="cacheLlist"
+        class="langues col-6 text-secondary mb-3 bg-light shadow-sm"
+      >
+        <h4 class="text-black">Langues</h4>
+        <hr class="text-primary" />
+        <div class="row">
+          <div class="col-8">
+            <h6>Langue maternelle</h6>
+            <div
+              *ngIf="langueMaternelle"
+              class="border border-black w-50 m-2 text-dark shadow-sm"
+            >
+              {{ langueMaternelle | uppercase }}
+            </div>
+            <h6>Autre(s) Langue(s)</h6>
+            <div
+              *ngFor="let langue of autresLangues"
+              class="border border-black w-50 m-2 text-dark shadow-sm"
+            >
+              {{ langue | uppercase }}
+            </div>
+          </div>
+          <div class="col-4">
+            <button class="btn w-75" (click)="modifierLangues()">
+              <i class="bi bi-pen text-primary btnModifier">Modifier</i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--------------------------------------End--------------------------------------------->
+
+      <!----------------------------------Loisirs--------------------------------------------->
+
+      <div
+        *ngIf="cacheLoisirList"
+        class="col-6 text-secondary mb-3 bg-light shadow-sm"
+      >
+        <h4 class="text-black">Loisirs</h4>
+        <hr class="text-primary" />
+        <app-one-loisir
+          *ngFor="let loisir of loisirs; let i = index"
+          [oneLoisir]="loisir"
+          [index]="i"
+        ></app-one-loisir>
+        <button class="btn" routerLink="/l">
+          <i class="bi bi-plus-circle text-primary"> Ajouter un loisir</i>
+        </button>
+      </div>
+
+      <!--------------------------------------End--------------------------------------------->
+
+      <div class="col-6 text-secondary bg-light shadow-lg">
+        <h4 class="text-black">Créer une section</h4>
+        <hr />
+        <form>
+          <label for="section">Sélectionner le type de section</label>
+          <select
+            #mySelect="ngModel"
+            ngModel
+            name="mySelect"
+            id=""
+            class="form-select"
+            (change)="onInputChange($event)"
+          >
+            <option ngValue="" selected>Sélectionner</option>
+            <option ngValue="EP" [hidden]="cacheEpList">
+              Expérience professionnelle
+            </option>
+            <option ngValue="EF" [hidden]="cacheEdList">
+              Education et formation
+            </option>
+            <option ngValue="C" [hidden]="cacheCList">Compétences</option>
+            <option ngValue="LANG" [hidden]="cacheLlist">Langues</option>
+            <option ngValue="LOISIR" [hidden]="cacheLoisirList">Loisirs</option>
+          </select>
+          <div class="d-flex justify-content-end m-3">
+            <div><button class="btn btn-secondary">Annuler</button></div>
+            <div>
+              <button
+                class="btn btn-primary"
+                (click)="switchForm(mySelect)"
+                [disabled]="disable"
+              >
+                Ajouter une section
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="row d-flex justify-content-center align-items-center">
+  <div class="col-6 border-bottom-0">
+    <div class="btnss">
+      <button
+        style="min-width: 150px"
+        type="submit"
+        class="btn btn-primary"
+        (click)="goToTemplateCV()"
+      >
+        Create cv <i class="bi bi-caret-right-fill"></i>
+      </button>
 
-
-
-
+      <button
+        style="min-width: 150px"
+        type="submit"
+        class="btn btn-primary"
+        (click)="goToTemplatePF()"
+      >
+        Create Portfolio<i class="bi bi-caret-right-fill"></i>
+      </button>
+    </div>
+  </div>
+</div>

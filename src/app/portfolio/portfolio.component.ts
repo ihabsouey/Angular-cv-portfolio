@@ -1,19 +1,14 @@
 import { Component } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-import { UserDataService } from '../user-data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-
 @Component({
-  selector: 'app-templates-cv',
-  templateUrl: './templates-cv.component.html',
-  styleUrls: ['./templates-cv.component.css'],
+  selector: 'app-portfolio',
+  templateUrl: './portfolio.component.html',
+  styleUrls: ['./portfolio.component.css'],
 })
-export class TemplatesCVComponent {
+export class PortfolioComponent {
   template = 0;
   activatedRoute!: ActivatedRoute;
-
   constructor(private router: Router, private location: Location) {}
 
   showModel() {

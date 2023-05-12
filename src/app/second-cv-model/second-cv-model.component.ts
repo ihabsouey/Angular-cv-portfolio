@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component } from '@angular/core';
+=======
+import { Component, ElementRef, ViewChild } from '@angular/core';
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 import { UserDataService } from '../user-data.service';
 import { Router } from '@angular/router';
 import { ImageService } from '../image.service';
@@ -8,6 +12,11 @@ import { CompetenceService } from '../competence.service';
 import { LanguesService } from '../langues.service';
 import { LoisirService } from '../loisir.service';
 import { ThemePalette } from '@angular/material/core';
+<<<<<<< HEAD
+=======
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 
 @Component({
   selector: 'app-second-cv-model',
@@ -26,12 +35,19 @@ export class SecondCvModelComponent {
 
   // selon social media type de logo
   sm: any = '';
+<<<<<<< HEAD
 
+=======
+  @ViewChild('template') template!: ElementRef;
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
   color: ThemePalette;
 
   constructor(
     private userDataService: UserDataService,
+<<<<<<< HEAD
     private router: Router,
+=======
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
     private img: ImageService,
     private experience: ExperienceService,
     private education: EducationService,
@@ -55,4 +71,25 @@ export class SecondCvModelComponent {
         ? 'bi bi-linkedin'
         : 'bi bi-github';
   }
+<<<<<<< HEAD
+=======
+  downloadCV() {
+    const pdf = new jsPDF('p', 'pt', [1300, 500]);
+    const content = this.template.nativeElement;
+
+    html2canvas(content).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth() - 10;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      const margin = 5; // 5mm margin on each side
+      const x = margin;
+      const y = margin;
+      const width = pdfWidth - margin * 2;
+      const height = pdfHeight - margin * 2;
+      pdf.addImage(imgData, 'PNG', x, y, width, height);
+      pdf.save('cv.pdf');
+    });
+  }
+>>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 }

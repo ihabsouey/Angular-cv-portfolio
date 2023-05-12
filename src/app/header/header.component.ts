@@ -32,6 +32,10 @@ export class HeaderComponent {
     this.ok = !this.ok;
     this.router.navigateByUrl('/contact');
   }
+  cv() {
+    this.ok = !this.ok;
+    this.router.navigateByUrl('/form');
+  }
 
   getuserEmail() {
     return new Promise((resolve, reject) => {
@@ -48,7 +52,6 @@ export class HeaderComponent {
     this.auth
       .logout()
       .then((res) => {
-        // alert('Logged out successfully');
         this.mail = '';
         location.href = '';
       })
