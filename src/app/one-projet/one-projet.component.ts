@@ -1,30 +1,28 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ExperienceService } from '../experience.service';
+import { ProjetService } from '../projet.service';
 import Swal from 'sweetalert2';
 
-
 @Component({
-  selector: 'app-one-experience',
-  templateUrl: './one-experience.component.html',
-  styleUrls: ['./one-experience.component.css']
+  selector: 'app-one-projet',
+  templateUrl: './one-projet.component.html',
+  styleUrls: ['./one-projet.component.css']
 })
-export class OneExperienceComponent {
-  @Input() oneExperience : any = {};
+export class OneProjetComponent {
+  @Input() oneProjet : any = {};
   @Input() index : any
 
   @Output() eventEmitter = new EventEmitter();
 
-  constructor(private experience : ExperienceService){}
-
+  constructor(private projet : ProjetService){}
 
   update(){
-    this.eventEmitter.emit(this.oneExperience)
+    this.eventEmitter.emit(this.oneProjet)
   }
 
   delete(){   
     Swal.fire({
       title: 'Etes vous sûr(e)?',
-      text: `De supprimer ${this.oneExperience.poste}?`,
+      text: `De supprimer ${this.oneProjet.poste}?`,
       input: 'text',
       inputPlaceholder: 'supprimer',
       showCancelButton: true,
@@ -41,10 +39,8 @@ export class OneExperienceComponent {
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        this.experience.experiences.splice(this.index, 1)
+        this.projet.projets.splice(this.index, 1)
       }
     });    
- }    
- }
-  
-
+ }  
+}

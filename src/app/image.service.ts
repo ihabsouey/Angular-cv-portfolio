@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ImageService {
   urlLink! : String
+  urlImgProjet!: String
 
   constructor() { }
 
@@ -14,5 +15,13 @@ export class ImageService {
 
   getUrlLink(){
     return this.urlLink
+  }
+
+  addUrlImgProjet(url : String){
+    this.urlImgProjet = url
+  }
+
+  getUrlImgProjet(){
+    return this.urlImgProjet
   }
 }

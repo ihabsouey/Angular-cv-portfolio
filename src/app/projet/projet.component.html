@@ -1,0 +1,98 @@
+<div class="row d-flex justify-content-center align-items-center shadow-lg">
+    <div class="container col-6 bg-light pt-2 mt-3">
+        <h4>Projets</h4>
+        <hr>
+        <form [formGroup]="projetForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="titre">Titre<span class="text-danger"> *</span></label>
+                <input type="text" class="form-control" id="titre" [(ngModel)]="titre"
+                formControlName="titre">
+            </div>
+
+            <div class="row d-flex mt-2">
+                <div class="col-4"><label for="fday">De</label></div>
+                <div class="col-8"><label for="lday">Au</label></div>
+            </div>
+            
+            <div class="duree mt-2 d-flex ">
+                <div formGroupName="startDate" class="d-flex">
+                    <div>  
+                        <select class="form-select"
+                        formControlName="day">
+                            <option  >DD</option>
+                            <option *ngFor="let day of days" [value]="day">{{day}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select"
+                        formControlName="month">
+                            <option  >MM</option>
+                            <option *ngFor="let month of months" [value]="month">{{month}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select"
+                        formControlName="year">
+                            <option  >YYYY</option>
+                            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div formGroupName="endDate" class="d-flex">
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" 
+                        formControlName="day">
+                            <option >DD</option>
+                            <option *ngFor="let day of days" [value]="day">{{day}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" 
+                        formControlName="month">
+                            <option  >MM</option>
+                            <option *ngFor="let month of months" [value]="month">{{month}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-left: 35px;">
+                        <select class="form-select" 
+                        formControlName="year">
+                            <option  >YYYY</option>
+                            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                        </select>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="mt-2 mb-3">
+                <label for="description">Description</label>
+                <textarea class="form-control text-secondary" id="description" 
+                placeholder="Vous pouvez fournir une description de vous même ici..."
+                formControlName = "description" [(ngModel)]="description"
+                ></textarea>
+            </div>
+
+            <div>
+                <label for="linkprojet">Lien vers le fichier ou la vidéo</label>
+                <input type="text" class="form-control" id="linkprojet" placeholder="intitulé de la fonction"
+                formControlName="linkprojet" [(ngModel)]="lien">
+            </div>
+
+            <div class="m-3 mb-3 w-50">
+                <label for="photo">Image de projet</label>
+                <input class="form-control" type="file" (change)="selectedFiles($event)"
+                >
+            </div>
+
+            <div class="d-flex justify-content-end button m-3">
+                <div>
+                    <button class="btn btn-secondary">Reset</button>
+                </div>
+                <div style="margin-left: 20px;">
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </div>            
+            </div>
+        </form>
+    </div>
+</div>

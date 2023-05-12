@@ -9,6 +9,7 @@ import { LanguesService } from '../langues.service';
 import { LoisirService } from '../loisir.service';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { ProjetService } from '../projet.service';
 
 
 
@@ -21,12 +22,13 @@ import Swal from 'sweetalert2';
 export class FormComponent {
   urlLink = "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
   newUrlLink! : any
-  cache = true
+  cache = false
   cacheEpList = false  // pour gérer l'affissage du div de "Expérience profossionnelle" et option dans select
   cacheEdList = false  // pour gérer l'affissage du div de "Education et formation" et option dans select
   cacheCList = false  // pour gérer l'affissage du div de "Competences" et option dans select
   cacheLlist = false  // pour gérer l'affissage du div de "Langues" et option dans select
   cacheLoisirList = false // pour gérer l'affissage du div de "loisir" et option dans select
+  cacheProjetList = false // poour gestion projet plus 
   fname = ""
   lname = ""
   presentation = ""
@@ -41,6 +43,7 @@ export class FormComponent {
   langueMaternelle : any = "" 
   autresLangues : any[] = []
   loisirs : any[] = []
+  projets : any[] = []
 
   // two way binding avec informtion form pour mofication
   // initialiser dans ngOnInit
@@ -56,7 +59,8 @@ export class FormComponent {
     private education : EducationService,
     private competence : CompetenceService,
     private langue : LanguesService,
-    private loisir : LoisirService
+    private loisir : LoisirService,
+    private projet : ProjetService
     ){}
 
   ngOnInit(){
@@ -72,6 +76,9 @@ export class FormComponent {
     this.autresLangues = this.langue.getLAutres()
     // init les loisirs
     this.loisirs = this.loisir.loisirs
+    // init les projets
+    this.projets = this.projet.getProjets()
+    
 
 /*    if(sessionStorage.getItem('fromTemplate')==='false'){
       this.cache = false
@@ -93,6 +100,26 @@ export class FormComponent {
 
     } */
 
+    if(sessionStorage.getItem('cacheFromProjet')==='false'){
+      this.cache = false
+      this.cacheProjetList = true
+    if(this.educations.length != 0)
+      this.cacheEdList = true  
+    
+    if(this.competences.length != 0)
+      this.cacheCList = true
+
+    if(this.loisirs.length != 0)
+      this.cacheLoisirList = true   
+    
+    if(this.autresLangues.length != 0)
+      this.cacheLlist = true
+
+      if(this.experiences.length != 0)
+      this.cacheEpList = true  
+
+    }
+
     if(sessionStorage.getItem('cacheFromExperience')==='false'){
       this.cache = false
       this.cacheEpList = true
@@ -107,6 +134,9 @@ export class FormComponent {
       
       if(this.autresLangues.length != 0)
         this.cacheLlist = true
+
+      if(this.projets.length != 0)
+        this.cacheProjetList = true
     } 
 
 
@@ -125,6 +155,9 @@ export class FormComponent {
 
       if(this.autresLangues.length != 0)
         this.cacheLlist = true  
+
+      if(this.projets.length != 0)
+        this.cacheProjetList = true   
     } 
 
 
@@ -142,6 +175,9 @@ export class FormComponent {
 
       if(this.autresLangues.length != 0)
         this.cacheLlist = true  
+       
+      if(this.projets.length != 0)
+        this.cacheProjetList = true 
     } 
 
 
@@ -159,7 +195,10 @@ export class FormComponent {
         this.cacheEpList = true 
 
       if(this.competences.length != 0)
-        this.cacheCList = true   
+        this.cacheCList = true
+
+       if(this.projets.length != 0)
+        this.cacheProjetList = true     
     }
 
 
@@ -178,6 +217,9 @@ export class FormComponent {
 
       if(this.autresLangues.length != 0)
         this.cacheLlist = true
+
+      if(this.projets.length != 0)
+        this.cacheProjetList = true  
 
     }
 
@@ -265,6 +307,8 @@ export class FormComponent {
           break
         case "LOISIR" : this.router.navigate(['l'], {relativeTo : this.activatedRoute})
           break 
+        case "projet" : this.router.navigate(['projet'], {relativeTo : this.activatedRoute})
+          break           
       }
   }
 
@@ -287,6 +331,16 @@ export class FormComponent {
 
   goToTemplateCV(){
     this.router.navigate(['template'], {relativeTo : this.activatedRoute})
+  }
+
+  modifier(data : any){
+    this.projet.tmp = data
+    this.router.navigate(['projet'], {relativeTo : this.activatedRoute})
+  }
+
+  modifierEp(data : any){
+    this.projet.tmp = data
+    this.router.navigate(['ep'], {relativeTo : this.activatedRoute})
   }
  
 }

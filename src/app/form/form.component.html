@@ -173,7 +173,7 @@
                 <h4 class="text-black">Experiences Professionnelles</h4>
                 <hr class="text-primary">
                 <app-one-experience *ngFor="let experience of experiences; let i = index" [oneExperience]="experience"
-                [index]="i"></app-one-experience>
+                [index]="i"  (eventEmitter)="modifierEp($event)"></app-one-experience >
                 <button class="btn" routerLink="/ep">
                     <i class="bi bi-plus-circle text-primary"> Ajouter une nouvelle expérience</i>
                 </button>
@@ -210,6 +210,23 @@
             </div>
 
             <!--------------------------------------End--------------------------------------------->  
+
+
+
+            <!--------------------------------------PROJET---------------------------------------------> 
+
+            <div *ngIf="cacheProjetList"  class="col-4 text-secondary mb-3 bg-light shadow-sm">
+                <h4 class="text-black">Projets</h4>
+                <hr class="text-primary">
+                <app-one-projet *ngFor="let projet of projets; let i = index" [oneProjet]="projet" 
+                [index]="i" (eventEmitter)="modifier($event)"></app-one-projet>
+                <button class="btn" routerLink="/projet">
+                    <i class="bi bi-plus-circle text-primary"> Ajouter un projet</i>
+                </button>
+            </div>
+            <!----------------------------------END--------------------------------------------->
+
+
 
             <!----------------------------------Langues--------------------------------------------->
 
@@ -265,6 +282,7 @@
                         <option ngValue="C" [hidden]="cacheCList">Compétences</option>
                         <option ngValue="LANG" [hidden]="cacheLlist">Langues</option>
                         <option ngValue="LOISIR" [hidden]="cacheLoisirList">Loisirs</option>
+                       <option ngValue="projet" [hidden]="cacheProjetList">Projets</option>
                     </select>
                     <div class="d-flex justify-content-end m-3">
                         <div><button class="btn btn-secondary" >Annuler</button></div>

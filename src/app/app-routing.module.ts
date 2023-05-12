@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProjetComponent } from './projet/projet.component';
 
 const routes: Routes = [
 
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path: 'lang', component: LangueFormComponent},
   {path: 'l', component: LoisirFormComponent},
   {path: 'template', component : TemplatesCVComponent},
-  {path: 'first', component : FirstCvModelComponent}
+  {path: 'first', component : FirstCvModelComponent},
+  {path: 'projet', component : ProjetComponent}
 
 ];
 

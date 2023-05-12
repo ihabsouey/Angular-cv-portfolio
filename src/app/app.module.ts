@@ -43,14 +43,16 @@ import { TemplatesCVComponent } from './templates-cv/templates-cv.component';
 
 import { TMPComponent } from './tmp/tmp.component';
 import { OneExperienceCvComponent } from './one-experience-cv/one-experience-cv.component';
-import { OneEducationCvComponent } from './one-education-cv/one-education-cv.component';
 import { UnEcucationComponent } from './un-ecucation/un-ecucation.component';
 
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MyPortfolioComponent } from './my-portfolio/my-portfolio.component';
+import { OneEducationCvComponent } from './one-education-cv/one-education-cv.component';
+import { ProjetComponent } from './projet/projet.component';
+import { OneProjetComponent } from './one-projet/one-projet.component';
+
 
 @NgModule({
   declarations: [
@@ -82,7 +84,8 @@ import { MyPortfolioComponent } from './my-portfolio/my-portfolio.component';
     HomeComponent,
     FooterComponent,
     ContactComponent,
-    MyPortfolioComponent,
+    ProjetComponent,
+    OneProjetComponent
     
 
   ],
