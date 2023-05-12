@@ -4,7 +4,7 @@
     background-size: cover;
     min-height: 170vh;
     height: auto;
-    /* align-items:center; */
+    align-items:center;
 }
 .Welcoming{
     /* text-align: center; */

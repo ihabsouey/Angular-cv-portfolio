@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <button class="btn btn-primary" (click)="goBack()">
+  <button class="btn " (click)="goBack()">
     <i class="bi bi-caret-left-fill"></i>
     back
   </button>
@@ -16,23 +16,14 @@
           <img
             (click)="changeTemplate(0)"
             class="rounded"
-            src="https://uifresh.net/wp-content/uploads/2021/12/resume-cv-design-1.png"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            (click)="changeTemplate(1)"
-            class="rounded"
-            src="https://uifresh.net/wp-content/uploads/2021/12/basic-resume-template.png"
+            src="https://uifresh.net/wp-content/uploads/2021/12/portfolio-html-project-767x1154.png"
             alt=""
           />
         </div>
       </div>
     </div>
     <div class="viewCv col-8 d-flex">
-      <app-first-cv-model *ngIf="template == 0"></app-first-cv-model>
-      <app-second-cv-model *ngIf="template == 1"></app-second-cv-model>
+      <app-third-cv-model></app-third-cv-model>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UserDataService } from '../user-data.service';
 import { Router } from '@angular/router';
 import { ImageService } from '../image.service';
@@ -8,6 +8,8 @@ import { CompetenceService } from '../competence.service';
 import { LanguesService } from '../langues.service';
 import { LoisirService } from '../loisir.service';
 import { ThemePalette } from '@angular/material/core';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-second-cv-model',
@@ -26,12 +28,11 @@ export class SecondCvModelComponent {
 
   // selon social media type de logo
   sm: any = '';
-
+  @ViewChild('template') template!: ElementRef;
   color: ThemePalette;
 
   constructor(
     private userDataService: UserDataService,
-    private router: Router,
     private img: ImageService,
     private experience: ExperienceService,
     private education: EducationService,
@@ -39,7 +40,9 @@ export class SecondCvModelComponent {
     private langue: LanguesService,
     private loisir: LoisirService
   ) {}
-
+  ngAfterViewInit() {
+    alert('ddd');
+  }
   ngOnInit() {
     this.infosPerso = this.userDataService.getInfosPerso();
     this.experiences = this.experience.getExperiences();
@@ -54,5 +57,23 @@ export class SecondCvModelComponent {
       this.infosPerso[0].socialMedia === 'in'
         ? 'bi bi-linkedin'
         : 'bi bi-github';
+  }
+  downloadCV() {
+    const pdf = new jsPDF('p', 'pt', [1300, 500]);
+    const content = this.template.nativeElement;
+
+    html2canvas(content).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth() - 10;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      const margin = 5; // 5mm margin on each side
+      const x = margin;
+      const y = margin;
+      const width = pdfWidth - margin * 2;
+      const height = pdfHeight - margin * 2;
+      pdf.addImage(imgData, 'PNG', x, y, width, height);
+      pdf.save('cv.pdf');
+    });
   }
 }

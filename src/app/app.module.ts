@@ -52,6 +52,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
 import { ThirdCvModelComponent } from './third-cv-model/third-cv-model.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +85,7 @@ import { ThirdCvModelComponent } from './third-cv-model/third-cv-model.component
     ContactComponent,
     SecondCvModelComponent,
     ThirdCvModelComponent,
+    PortfolioComponent,
   ],
   imports: [
     BrowserModule,

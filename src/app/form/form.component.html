@@ -453,20 +453,31 @@
 <div class="row d-flex justify-content-center align-items-center">
   <div class="col-3"></div>
   <div class="col-6 border-bottom-0">
-    <div class=" btns d-flex justify-content-between m-3 button">
+    <div class="btns d-flex justify-content-between m-3 button">
       <div>
         <button class="btn btn-danger"><i class="bi bi-x"></i>Quitter</button>
       </div>
-      <div>
+      <div class="btnss">
         <button
+          style="min-width: 150px"
           type="submit"
           class="btn btn-primary"
           (click)="goToTemplateCV()"
         >
-          Next<i class="bi bi-caret-right-fill"></i>
+          Next to cv <i class="bi bi-caret-right-fill"></i>
+        </button>
+      </div>
+      <div class="btnss">
+        <button
+          style="min-width: 150px"
+          type="submit"
+          class="btn btn-primary"
+          (click)="goToTemplatePF()"
+        >
+          Next To port<i class="bi bi-caret-right-fill"></i>
         </button>
       </div>
     </div>
+    <div class="col-3"></div>
   </div>
-  <div class="col-3"></div>
 </div>

@@ -98,10 +98,24 @@ body {
   font-size: 16px;
   position: relative;
 }
+.btnDownload{
+  background-color: #03A9F4;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight:700 ;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  float:right;
+  margin-bottom: 15px;
+}
 
 .resume .icon i,
 .resume .resume_right .resume_hobby ul li i {
-  position: absolute;
+  position: relative; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -136,7 +150,7 @@ body {
 }
 
 .resume .resume_left .resume_skills ul li .skill_progress span {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   height: 100%;
@@ -185,7 +199,7 @@ body {
 .resume .resume_right .resume_work ul li:before,
 .resume .resume_right .resume_education ul li:before {
   content: "";
-  position: absolute;
+  position: relative;
   top: 5px;
   left: -25px;
   width: 6px;
@@ -197,7 +211,7 @@ body {
 .resume .resume_right .resume_work ul li:after,
 .resume .resume_right .resume_education ul li:after {
   content: "";
-  position: absolute;
+  position: relative;
   top: 14px;
   left: -21px;
   width: 2px;
@@ -225,7 +239,7 @@ body {
 
 .resume .resume_right .resume_hobby ul li:before {
   content: "";
-  position: absolute;
+  position: relative;
   top: 40px;
   right: -52px;
   width: 50px;

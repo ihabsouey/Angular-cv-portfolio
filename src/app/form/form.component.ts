@@ -252,6 +252,9 @@ export class FormComponent {
   }
 
   goToTemplateCV() {
-    this.router.navigate(['template2'], { relativeTo: this.activatedRoute });
+    this.router.navigate(['template'], { relativeTo: this.activatedRoute });
+  }
+  goToTemplatePF() {
+    this.router.navigate(['portfolio'], { relativeTo: this.activatedRoute });
   }
 }

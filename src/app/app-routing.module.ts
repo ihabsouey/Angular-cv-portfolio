@@ -17,12 +17,14 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 const routes: Routes = [
   { path: 'form', component: FormComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'portfolio', component: PortfolioComponent },
 
   { path: '', component: HomeComponent },
   { path: 'cv', component: CvModelComponent },
