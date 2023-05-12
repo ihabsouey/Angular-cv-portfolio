@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./templates-cv.component.css'],
 })
 export class TemplatesCVComponent {
+  template = 0;
   activatedRoute!: ActivatedRoute;
 
   constructor(private router: Router, private location: Location) {}
@@ -23,7 +24,8 @@ export class TemplatesCVComponent {
     this.location.back();
     sessionStorage.setItem('fromTemplate', 'false');
   }
-  changeCV() {
-    this.router.navigate(['/template2'], { relativeTo: this.activatedRoute });
+  changeTemplate(newTemplate: any) {
+    //this.router.navigate(['/template2'], { relativeTo: this.activatedRoute });
+    this.template = newTemplate;
   }
 }

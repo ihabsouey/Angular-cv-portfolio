@@ -14,6 +14,7 @@
       <div>
         <div (click)="showModel()">
           <img
+            (click)="changeTemplate(0)"
             class="rounded"
             src="https://uifresh.net/wp-content/uploads/2021/12/resume-cv-design-1.png"
             alt=""
@@ -21,8 +22,7 @@
         </div>
         <div>
           <img
-          
-          (click)="changeCV()"
+            (click)="changeTemplate(1)"
             class="rounded"
             src="https://uifresh.net/wp-content/uploads/2021/12/basic-resume-template.png"
             alt=""
@@ -31,6 +31,7 @@
         <div>
           <img
             class="rounded"
+            (click)="changeTemplate(2)"
             src="https://uifresh.net/wp-content/uploads/2021/12/my-basic-resume-template.png"
             alt=""
           />
@@ -38,7 +39,9 @@
       </div>
     </div>
     <div class="viewCv col-8 d-flex">
-      <app-first-cv-model></app-first-cv-model>
+      <app-first-cv-model *ngIf="template == 0"></app-first-cv-model>
+      <app-second-cv-model *ngIf="template == 1"></app-second-cv-model>
+      <app-third-cv-model *ngIf="template == 2"></app-third-cv-model>
     </div>
   </div>
 </div>

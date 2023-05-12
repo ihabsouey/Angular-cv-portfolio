@@ -51,6 +51,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
+import { ThirdCvModelComponent } from './third-cv-model/third-cv-model.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +83,7 @@ import { SecondCvModelComponent } from './second-cv-model/second-cv-model.compon
     FooterComponent,
     ContactComponent,
     SecondCvModelComponent,
+    ThirdCvModelComponent,
   ],
   imports: [
     BrowserModule,
