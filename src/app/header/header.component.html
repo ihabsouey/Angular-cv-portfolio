@@ -15,12 +15,32 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a routerLink="contact" (click)="contacter()" class="nav-link" href="#"
+        <a
+          routerLink="contact"
+          routerLinkActive="active"
+          (click)="contacter()"
+          class="nav-link"
+          href="#"
           >Contactez</a
         >
       </li>
+      <li class="nav-item">
+        <a
+          routerLink="CV"
+          routerLinkActive="active"
+          (click)="cv()"
+          class="nav-link"
+          href="#"
+          >CV</a
+        >
+      </li>
       <li *ngIf="!logged" class="nav-item">
-        <a routerLink="login" (click)="verifie()" class="nav-link" href="#"
+        <a
+          routerLink="login"
+          routerLinkActive="active"
+          (click)="verifie()"
+          class="nav-link"
+          href="#"
           >Sign In</a
         >
       </li>

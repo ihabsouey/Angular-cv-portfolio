@@ -1,25 +1,44 @@
-
 <div class="container mt-5">
-    <button class="btn btn-primary" (click)="goBack()">
-        <i class="bi bi-caret-left-fill"></i>
-        back
-    </button>
-    <hr>
-    <h3>Selectionner un modele de cv</h3>
-    <p>Choisissez le modèle que vous souhaitez utiliser pour votre CV dans les modèles Europass disponibles.</p>
-    <div class="row">
-        <div class="col-4">
-            <div>
-                <div (click)="showModel()">
-                    <img class="rounded" src="https://uifresh.net/wp-content/uploads/2021/12/resume-cv-design-1.png" alt="">
-                </div>
-                <div></div>
-                <div></div>
-            </div>
+  <button class="btn btn-primary" (click)="goBack()">
+    <i class="bi bi-caret-left-fill"></i>
+    back
+  </button>
+  <hr />
+  <h3>Selectionner un modele de cv</h3>
+  <p>
+    Choisissez le modèle que vous souhaitez utiliser pour votre CV dans les
+    modèles Europass disponibles.
+  </p>
+  <div class="row">
+    <div class="col-4">
+      <div>
+        <div (click)="showModel()">
+          <img
+            class="rounded"
+            src="https://uifresh.net/wp-content/uploads/2021/12/resume-cv-design-1.png"
+            alt=""
+          />
         </div>
-        <div class="viewCv col-8 d-flex">
-           <app-first-cv-model></app-first-cv-model>
-        </div>        
+        <div>
+          <img
+          
+          (click)="changeCV()"
+            class="rounded"
+            src="https://uifresh.net/wp-content/uploads/2021/12/basic-resume-template.png"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            class="rounded"
+            src="https://uifresh.net/wp-content/uploads/2021/12/my-basic-resume-template.png"
+            alt=""
+          />
+        </div>
+      </div>
     </div>
+    <div class="viewCv col-8 d-flex">
+      <app-first-cv-model></app-first-cv-model>
+    </div>
+  </div>
 </div>
-

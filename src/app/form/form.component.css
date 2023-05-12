@@ -28,6 +28,12 @@ button {
 .formFooter { 
     bottom: 0;
 }
-
+btns{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    
+}
 
 

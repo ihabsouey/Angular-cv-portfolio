@@ -32,6 +32,10 @@ export class HeaderComponent {
     this.ok = !this.ok;
     this.router.navigateByUrl('/contact');
   }
+  cv() {
+    this.ok = !this.ok;
+    this.router.navigateByUrl('/form');
+  }
 
   getuserEmail() {
     return new Promise((resolve, reject) => {
