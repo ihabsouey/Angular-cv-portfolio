@@ -52,7 +52,7 @@ export class FirstCvModelComponent {
    this.langueMaternelle = this.langue.getLMaternelle()
 
 
-   //this.sm = this.infosPerso[0].socialMedia === 'in' ? "bi bi-linkedin" : "bi bi-github"
+   this.sm = this.infosPerso[0].socialMedia === 'in' ? "bi bi-linkedin" : "bi bi-github"
   
   }
 }

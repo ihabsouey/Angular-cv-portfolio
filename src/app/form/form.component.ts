@@ -21,7 +21,7 @@ import Swal from 'sweetalert2';
 export class FormComponent {
   urlLink = "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
   newUrlLink! : any
-  cache = false
+  cache = true
   cacheEpList = false  // pour gérer l'affissage du div de "Expérience profossionnelle" et option dans select
   cacheEdList = false  // pour gérer l'affissage du div de "Education et formation" et option dans select
   cacheCList = false  // pour gérer l'affissage du div de "Competences" et option dans select

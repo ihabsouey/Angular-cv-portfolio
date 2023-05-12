@@ -46,15 +46,12 @@ import { OneExperienceCvComponent } from './one-experience-cv/one-experience-cv.
 import { OneEducationCvComponent } from './one-education-cv/one-education-cv.component';
 import { UnEcucationComponent } from './un-ecucation/un-ecucation.component';
 
-
-
-
-
-
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MyPortfolioComponent } from './my-portfolio/my-portfolio.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,21 +72,18 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     LoginComponent,
 
- 
     FirstCvModelComponent,
     TemplatesCVComponent,
     TMPComponent,
     OneExperienceCvComponent,
     OneEducationCvComponent,
-    UnEcucationComponent
- 
-
-
-
-    
+    UnEcucationComponent,
+  
     HomeComponent,
     FooterComponent,
     ContactComponent,
+    MyPortfolioComponent,
+    
 
   ],
   imports: [
@@ -107,7 +101,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule,
 
     CommonModule,
-    FormsModule
+    FormsModule,
 
 
     HttpClientModule,

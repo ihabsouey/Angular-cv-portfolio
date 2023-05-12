@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   
-  {path : '', component : FormComponent},
+  {path : 'form', component : FormComponent},
+  {path : '', component : HomeComponent},
   {path: 'cv', component: CvModelComponent},
   {path: 'ep', component: ExperienceProComponent},
   {path: 'ef', component: EducatinFormComponent},
