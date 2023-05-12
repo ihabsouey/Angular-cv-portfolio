@@ -76,8 +76,12 @@ import { SecondCvModelComponent } from './second-cv-model/second-cv-model.compon
     TMPComponent,
     OneExperienceCvComponent,
     OneEducationCvComponent,
+<<<<<<< HEAD
     UnEcucationComponent,
 
+=======
+    UnEcucationComponent,    
+>>>>>>> 2639473ddea3a844c15e961d5a7850c997cc7174
     HomeComponent,
     FooterComponent,
     ContactComponent,
@@ -99,6 +103,10 @@ import { SecondCvModelComponent } from './second-cv-model/second-cv-model.compon
 
     CommonModule,
     FormsModule,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2639473ddea3a844c15e961d5a7850c997cc7174
 
     HttpClientModule,
   ],
