@@ -291,7 +291,7 @@
 
       <div
         *ngIf="cacheEpList"
-        class="col-4 text-secondary mb-3 bg-light shadow-sm"
+        class="col-6 text-secondary mb-3 bg-light shadow-sm"
       >
         <h4 class="text-black">Experiences Professionnelles</h4>
         <hr class="text-primary" />
@@ -313,7 +313,7 @@
 
       <div
         *ngIf="cacheEdList"
-        class="col-4 text-secondary mb-3 bg-light shadow-sm"
+        class="col-6 text-secondary mb-3 bg-light shadow-sm"
       >
         <h4 class="text-black">Educations et Formations</h4>
         <hr class="text-primary" />
@@ -335,7 +335,7 @@
 
       <div
         *ngIf="cacheCList"
-        class="col-4 text-secondary mb-3 bg-light shadow-sm"
+        class="col-6 text-secondary mb-3 bg-light shadow-sm"
       >
         <h4 class="text-black">Compétences</h4>
         <hr class="text-primary" />
@@ -357,7 +357,7 @@
 
       <div
         *ngIf="cacheLlist"
-        class="langues col-4 text-secondary mb-3 bg-light shadow-sm"
+        class="langues col-6 text-secondary mb-3 bg-light shadow-sm"
       >
         <h4 class="text-black">Langues</h4>
         <hr class="text-primary" />
@@ -392,7 +392,7 @@
 
       <div
         *ngIf="cacheLoisirList"
-        class="col-4 text-secondary mb-3 bg-light shadow-sm"
+        class="col-6 text-secondary mb-3 bg-light shadow-sm"
       >
         <h4 class="text-black">Loisirs</h4>
         <hr class="text-primary" />
@@ -408,7 +408,7 @@
 
       <!--------------------------------------End--------------------------------------------->
 
-      <div class="col-5 text-secondary bg-light shadow-lg">
+      <div class="col-6 text-secondary bg-light shadow-lg">
         <h4 class="text-black">Créer une section</h4>
         <hr />
         <form>
@@ -451,33 +451,25 @@
 </div>
 
 <div class="row d-flex justify-content-center align-items-center">
-  <div class="col-3"></div>
   <div class="col-6 border-bottom-0">
-    <div class="btns d-flex justify-content-between m-3 button">
-      <div>
-        <button class="btn btn-danger"><i class="bi bi-x"></i>Quitter</button>
-      </div>
-      <div class="btnss">
-        <button
-          style="min-width: 150px"
-          type="submit"
-          class="btn btn-primary"
-          (click)="goToTemplateCV()"
-        >
-          Next to cv <i class="bi bi-caret-right-fill"></i>
-        </button>
-      </div>
-      <div class="btnss">
-        <button
-          style="min-width: 150px"
-          type="submit"
-          class="btn btn-primary"
-          (click)="goToTemplatePF()"
-        >
-          Next To port<i class="bi bi-caret-right-fill"></i>
-        </button>
-      </div>
+    <div class="btnss">
+      <button
+        style="min-width: 150px"
+        type="submit"
+        class="btn btn-primary"
+        (click)="goToTemplateCV()"
+      >
+        Create cv <i class="bi bi-caret-right-fill"></i>
+      </button>
+
+      <button
+        style="min-width: 150px"
+        type="submit"
+        class="btn btn-primary"
+        (click)="goToTemplatePF()"
+      >
+        Create Portfolio<i class="bi bi-caret-right-fill"></i>
+      </button>
     </div>
-    <div class="col-3"></div>
   </div>
 </div>

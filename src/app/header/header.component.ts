@@ -52,7 +52,6 @@ export class HeaderComponent {
     this.auth
       .logout()
       .then((res) => {
-        // alert('Logged out successfully');
         this.mail = '';
         location.href = '';
       })

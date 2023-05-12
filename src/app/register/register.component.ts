@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -21,33 +22,52 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.email == '' || this.password == '' || this.confirmPassword == '') {
-      alert('Please fill all the fields');
+      Swal.fire({
+        title: 'Attention !',
+        text: 'Merci de remplir tout les champs',
+        confirmButtonColor: '#ffcc00',
+      });
       return;
     }
     //test if the email is valid with regex
     var regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     if (!regex.test(this.email)) {
-      alert('Please enter a valid email');
+      Swal.fire({
+        title: 'Attention !',
+        text: 'Merci de saisir une adresse email valide',
+      });
       return;
     }
 
     if (this.password.length < 6) {
-      alert('Password should be at least 6 characters');
+      Swal.fire({
+        title: 'Attention !',
+        text: 'Le mot de passe doit contenir au moins 6 caractères',
+      });
       return;
     }
     if (this.password.length > 20) {
-      alert('Password should be less than 20 characters');
+      Swal.fire({
+        title: 'Attention !',
+        text: 'Le mot de passe doit contenir au maximum 20 caractères',
+      });
       return;
     }
     if (this.confirmPassword != this.password) {
-      alert("Passwords don't match");
+      Swal.fire({
+        title: 'Attention !',
+        text: 'Les mots de passe ne correspondent pas',
+      });
       return;
     }
 
     this.auth
       .signup(this.email, this.password)
       .then((res) => {
-        alert('Signed up successfully');
+        Swal.fire({
+          title: 'Bravo !',
+          text: 'Inscription réussie',
+        });
         this.router.navigate(['/']);
       })
       .catch((err) => console.log(err));

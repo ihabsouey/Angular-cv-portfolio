@@ -40,9 +40,7 @@ export class SecondCvModelComponent {
     private langue: LanguesService,
     private loisir: LoisirService
   ) {}
-  ngAfterViewInit() {
-    alert('ddd');
-  }
+
   ngOnInit() {
     this.infosPerso = this.userDataService.getInfosPerso();
     this.experiences = this.experience.getExperiences();

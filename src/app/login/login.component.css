@@ -6,14 +6,20 @@
     font-family: 'Poppins', sans-serif;
 }
 .containeer{
-    height: 80vh;
+
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     /* background-color: #4070f4;  */
-    background-image : URL("https://img.freepik.com/photos-gratuite/key-lock-mot-passe-securite-protection-vie-privee-graphique_53876-121252.jpg?w=1380&t=st=1683840632~exp=1683841232~hmac=68e7d3c9e8186e573e9fc0d3e5b768c90749581bac339bf1b0e8fd329e8ffd9f");
-    column-gap: 30px;
+    background-image : URL("https://img.freepik.com/photos-gratuite/espace-travail-table-travail-bureau_144627-40147.jpg?w=1380&t=st=1683814939~exp=1683815539~hmac=0c7afeead04e06224b06b89ab4e999be5ccbedffd3f41ff5c79f6a917a86e741");
+    
+    
+    background-size: cover;
+    min-height: 100vh;
+    height: auto;
+
+
     
    
 }
@@ -82,7 +88,7 @@ form{
 }
 .field button{
     color: #fff;
-    background-color: #1480c8;
+    background-color: #1c415a;
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -100,7 +106,7 @@ form{
     color: #232836;
 }
 .form a{
-    color: #0171d3;
+    color: #0626b5;
     text-decoration: none;
 }
 .form-content a:hover{

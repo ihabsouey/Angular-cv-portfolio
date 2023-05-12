@@ -37,8 +37,11 @@ export class LoisirFormComponent {
   addLoisir() {
     const loisir = this.form.value.titre;
     loisir.split(';').forEach((element: any) => {
-      if (element.trim() != '' && !this.loisirs.includes(element.trim()))
-        this.loisirs.push(element.trim());
+      if (
+        element.trim() != '' &&
+        !this.selectedLoisirs.includes(element.trim())
+      )
+        this.selectedLoisirs.push(element.trim());
     });
 
     this.form.get('titre')?.reset();

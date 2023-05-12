@@ -36,14 +36,12 @@ button {
 
 }
 .btnss{
-    
  
-    justify-content: center ;
-
-    align-items: center;
     display: flex;
+    justify-content: center ;
+    align-items: flex-end;
     flex-direction: column;
-    
+    gap: 10px;
 
     
 }
