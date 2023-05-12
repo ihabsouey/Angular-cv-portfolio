@@ -53,10 +53,7 @@ export class FirstCvModelComponent {
     this.autresLangues = this.langue.getLAutres();
     this.langueMaternelle = this.langue.getLMaternelle();
 
-<<<<<<< HEAD
-   this.sm = this.infosPerso[0].socialMedia === 'in' ? "bi bi-linkedin" : "bi bi-github"
-  
-=======
+
     this.sm =
       this.infosPerso[0].socialMedia === 'in'
         ? 'bi bi-linkedin'
@@ -79,6 +76,5 @@ export class FirstCvModelComponent {
       pdf.addImage(imgData, 'PNG', x, y, width, height);
       pdf.save('cv.pdf');
     });
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
   }
 }

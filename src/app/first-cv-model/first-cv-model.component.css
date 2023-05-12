@@ -89,6 +89,8 @@ body {
 }
 
 .resume .resume_left ul li .icon {
+  position: absolute;
+
   width: 35px;
   height: 35px;
   background: #fff;
@@ -115,7 +117,7 @@ body {
 
 .resume .icon i,
 .resume .resume_right .resume_hobby ul li i {
-  position: relative; 
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -150,7 +152,7 @@ body {
 }
 
 .resume .resume_left .resume_skills ul li .skill_progress span {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
@@ -179,7 +181,7 @@ body {
 }
 
 .resume .resume_right ul li {
-  position: relative;
+  position: absolute;
 }
 
 .resume .resume_right ul li .date {

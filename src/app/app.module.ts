@@ -8,7 +8,7 @@ import { FormComponent } from './form/form.component';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CvModelComponent } from './cv-model/cv-model.component';
-import { ExperienceProComponent } from './experience-pro/experience-pro.component';
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { OneExperienceComponent } from './one-experience/one-experience.component';
 import { EducatinFormComponent } from './educatin-form/educatin-form.component';
@@ -49,17 +49,17 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
+
 import { OneEducationCvComponent } from './one-education-cv/one-education-cv.component';
 import { ProjetComponent } from './projet/projet.component';
 import { OneProjetComponent } from './one-projet/one-projet.component';
 
 
-=======
+
 import { SecondCvModelComponent } from './second-cv-model/second-cv-model.component';
 import { ThirdCvModelComponent } from './third-cv-model/third-cv-model.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+import { ExperienceProComponent } from './first-cv-model/experience-pro/experience-pro.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,31 +79,21 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 
     RegisterComponent,
     LoginComponent,
-
     FirstCvModelComponent,
     TemplatesCVComponent,
     TMPComponent,
     OneExperienceCvComponent,
     OneEducationCvComponent,
     UnEcucationComponent,
-<<<<<<< HEAD
-  
-    HomeComponent,
-    FooterComponent,
-    ContactComponent,
+
     ProjetComponent,
-    OneProjetComponent
-    
-
-=======
-
+    OneProjetComponent,
     HomeComponent,
     FooterComponent,
     ContactComponent,
     SecondCvModelComponent,
     ThirdCvModelComponent,
     PortfolioComponent,
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
   ],
   imports: [
     BrowserModule,
@@ -115,17 +105,12 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     MatChipsModule,
     MatInputModule,
     MatIconModule,
-
+   
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-
+    
     CommonModule,
     FormsModule,
-<<<<<<< HEAD
-
-=======
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
-
     HttpClientModule,
   ],
   providers: [

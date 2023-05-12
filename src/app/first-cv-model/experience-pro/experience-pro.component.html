@@ -6,13 +6,13 @@
             <div>
                 <label for="poste">Fonction et poste occupé(e)<span class="text-danger"> *</span></label>
                 <input type="text" class="form-control" id="poste" placeholder="intitulé de la fonction"
-                formControlName="poste">
+                formControlName="poste" [(ngModel)]="poste">
             </div>
 
             <div class="mt-2">
                 <label for="employeur">Employeur</label>
                 <input type="text" class="form-control" id="employeur" 
-                formControlName="employeur">
+                formControlName="employeur" [(ngModel)]="employer">
             </div>
 
             <div class="row mt-2">
@@ -95,7 +95,7 @@
             <div class="mt-2 mb-3">
                 <label for="textarea">Principales activités et responsabilités</label>
                 <textarea class="form-control text-secondary" id="textarea" formControlName="presentation" 
-                placeholder="- maintenance informatique..."></textarea>
+                placeholder="- maintenance informatique..." [(ngModel)]="presentation"></textarea >
             </div>
 
             <div class="d-flex justify-content-end button">
@@ -106,10 +106,6 @@
                     <button type="submit" class="btn btn-primary">Sauvegarder</button>
                 </div>            
             </div>
-
-            <pre>
-                {{experienceForm.value | json}}
-            </pre>
         </form>
     </div>  
 </div>

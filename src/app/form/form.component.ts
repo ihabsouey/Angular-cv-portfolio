@@ -17,10 +17,9 @@ import { ProjetService } from '../projet.service';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent {
-<<<<<<< HEAD
   urlLink = "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
   newUrlLink! : any
-  cache = false
+  cache = true
   cacheEpList = false  // pour gérer l'affissage du div de "Expérience profossionnelle" et option dans select
   cacheEdList = false  // pour gérer l'affissage du div de "Education et formation" et option dans select
   cacheCList = false  // pour gérer l'affissage du div de "Competences" et option dans select
@@ -30,26 +29,12 @@ export class FormComponent {
   fname = ""
   lname = ""
   presentation = ""
-=======
-  urlLink =
-    'https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png';
-  newUrlLink!: any;
-  cache = true;
-  cacheEpList = false; // pour gérer l'affissage du div de "Expérience profossionnelle" et option dans select
-  cacheEdList = false; // pour gérer l'affissage du div de "Education et formation" et option dans select
-  cacheCList = false; // pour gérer l'affissage du div de "Competences" et option dans select
-  cacheLlist = false; // pour gérer l'affissage du div de "Langues" et option dans select
-  cacheLoisirList = false; // pour gérer l'affissage du div de "loisir" et option dans select
-  fname = '';
-  lname = '';
-  presentation = '';
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+
 
   disable = true; // pour désactiver le bouton si une section n'est pas selectionner
 
   activatedRoute!: ActivatedRoute;
 
-<<<<<<< HEAD
   experiences : any[] = []
   educations : any[] = []
   competences : any[] = []
@@ -57,14 +42,7 @@ export class FormComponent {
   autresLangues : any[] = []
   loisirs : any[] = []
   projets : any[] = []
-=======
-  experiences: any[] = [];
-  educations: any[] = [];
-  competences: any[] = [];
-  langueMaternelle: any = '';
-  autresLangues: any[] = [];
-  loisirs: any[] = [];
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+
 
   // two way binding avec informtion form pour mofication
   // initialiser dans ngOnInit
@@ -73,7 +51,6 @@ export class FormComponent {
   pres = '';
 
   constructor(
-<<<<<<< HEAD
     private userDataService : UserDataService,
     private router : Router,
     private img : ImageService,
@@ -85,18 +62,7 @@ export class FormComponent {
     private projet : ProjetService
     ){}
 
-  ngOnInit(){
-=======
-    private userDataService: UserDataService,
-    private router: Router,
-    private img: ImageService,
-    private experience: ExperienceService,
-    private education: EducationService,
-    private competence: CompetenceService,
-    private langue: LanguesService,
-    private loisir: LoisirService
-  ) {}
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+
 
   ngOnInit() {
     // init experiences
@@ -109,14 +75,11 @@ export class FormComponent {
     this.langueMaternelle = this.langue.getLMaternelle();
     this.autresLangues = this.langue.getLAutres();
     // init les loisirs
-<<<<<<< HEAD
     this.loisirs = this.loisir.loisirs
     // init les projets
     this.projets = this.projet.getProjets()
     
-=======
-    this.loisirs = this.loisir.loisirs;
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+
 
     /*    if(sessionStorage.getItem('fromTemplate')==='false'){
       this.cache = false
@@ -138,7 +101,6 @@ export class FormComponent {
 
     } */
 
-<<<<<<< HEAD
     if(sessionStorage.getItem('cacheFromProjet')==='false'){
       this.cache = false
       this.cacheProjetList = true
@@ -177,18 +139,9 @@ export class FormComponent {
       if(this.projets.length != 0)
         this.cacheProjetList = true
     } 
-=======
-    if (sessionStorage.getItem('cacheFromExperience') === 'false') {
-      this.cache = false;
-      this.cacheEpList = true;
-      if (this.educations.length != 0) this.cacheEdList = true;
-
-      if (this.competences.length != 0) this.cacheCList = true;
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
 
       if (this.loisirs.length != 0) this.cacheLoisirList = true;
 
-<<<<<<< HEAD
 
     if(sessionStorage.getItem('cacheFromEducation')==='false'){
       this.cache = false
@@ -248,9 +201,7 @@ export class FormComponent {
 
        if(this.projets.length != 0)
         this.cacheProjetList = true     
-=======
-      if (this.autresLangues.length != 0) this.cacheLlist = true;
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+
     }
 
     if (sessionStorage.getItem('cacheFromEducation') === 'false') {
@@ -262,13 +213,10 @@ export class FormComponent {
 
       if (this.competences.length != 0) this.cacheCList = true;
 
-<<<<<<< HEAD
       if(this.projets.length != 0)
         this.cacheProjetList = true  
 
-=======
-      if (this.autresLangues.length != 0) this.cacheLlist = true;
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+
     }
 
     if (sessionStorage.getItem('cacheFromCompetence') === 'false') {
@@ -372,7 +320,6 @@ export class FormComponent {
   }
 
   // Selon la valeur de la section affiche formulaire correspondant
-<<<<<<< HEAD
   switchForm(mySelect:any){   
       switch(mySelect.value){
         case "EP" : this.router.navigate(['ep'], {relativeTo : this.activatedRoute})
@@ -388,26 +335,7 @@ export class FormComponent {
         case "projet" : this.router.navigate(['projet'], {relativeTo : this.activatedRoute})
           break           
       }
-=======
-  switchForm(mySelect: any) {
-    switch (mySelect.value) {
-      case 'EP':
-        this.router.navigate(['ep'], { relativeTo: this.activatedRoute });
-        break;
-      case 'EF':
-        this.router.navigate(['ef'], { relativeTo: this.activatedRoute });
-        break;
-      case 'C':
-        this.router.navigate(['c'], { relativeTo: this.activatedRoute });
-        break;
-      case 'LANG':
-        this.router.navigate(['lang'], { relativeTo: this.activatedRoute });
-        break;
-      case 'LOISIR':
-        this.router.navigate(['l'], { relativeTo: this.activatedRoute });
-        break;
-    }
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+
   }
 
   // desactive le button de la section si rien n'est sélectionner
@@ -432,7 +360,6 @@ export class FormComponent {
   goToTemplatePF() {
     this.router.navigate(['portfolio'], { relativeTo: this.activatedRoute });
   }
-<<<<<<< HEAD
 
   modifier(data : any){
     this.projet.tmp = data
@@ -444,6 +371,5 @@ export class FormComponent {
     this.router.navigate(['ep'], {relativeTo : this.activatedRoute})
   }
  
-=======
->>>>>>> 9adb865a48fb86e26dca0a9b95d0c1fe975524e3
+
 }
